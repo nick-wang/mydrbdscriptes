@@ -1,0 +1,32 @@
+From a8d5e5ed817ed75f7589008b44a5c3db69e8f059 Mon Sep 17 00:00:00 2001
+From: Nick Wang <nwang@suse.com>
+Date: Fri, 12 Aug 2016 16:51:19 +0800
+Subject: [PATCH] Fix case of resync-never-connected.KNOWN
+
+event(disk:UpToDate) only show once when ready,
+not necessary to check between fio write/verify.
+---
+ tests/resync-never-connected.KNOWN | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/resync-never-connected.KNOWN b/tests/resync-never-connected.KNOWN
+index 4ebab20..a0c4c1d 100755
+--- a/tests/resync-never-connected.KNOWN
++++ b/tests/resync-never-connected.KNOWN
+@@ -47,11 +47,11 @@ last_node = resource.nodes[-1]
+ first_node.primary(force=True)
+ first_node.secondary()
+ 
++for n in others:
++    n.disks[0].event(r'device .* disk:UpToDate')
+ 
+ for i in range(10):
+     first_node.fio(section='write')
+-    for n in others:
+-        n.disks[0].event(r'device .* disk:UpToDate')
+     last_node.fio(section='verify')
+ 
+ 
+-- 
+1.8.5.6
+

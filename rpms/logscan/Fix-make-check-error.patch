@@ -1,0 +1,31 @@
+From 464bca6774b0259dd9fec16b305bac8dcfab4c99 Mon Sep 17 00:00:00 2001
+From: Nick Wang <nwang@suse.com>
+Date: Thu, 11 Aug 2016 15:37:01 +0800
+Subject: [PATCH] Fix make check error.
+
+---
+ logscan.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/logscan.c b/logscan.c
+index d395173..f24958a 100644
+--- a/logscan.c
++++ b/logscan.c
+@@ -611,13 +611,11 @@ static void scan_line(struct logfile *logfile, char *line, unsigned int length)
+ 				if (opt_print)
+ 					print_matches(expr, line, length - 1, pattern->ovector, opt_print);
+ 				if (opt_verbose) {
+-					fprintf(info, "Pattern '%s' matches %sat %s:%u; [",
++					fprintf(info, "Pattern '%s' matches %sat %s:%u\n",
+ 						pattern->regex,
+ 						pattern->matches ? "again " : "",
+ 						expr->label,
+ 						expr->line);
+-					print_matches_as_JSON(info, line, pattern);
+-					fprintf(info, "]\n");
+ 				}
+ 				if (!pattern->matches) {
+ 					pattern->matches = true;
+-- 
+1.8.5.6
+

@@ -1,0 +1,24 @@
+<services>
+  <service name="tar_scm" mode="disabled">
+    <param name="url">http://git.drbd.org/drbd-test.git/</param>
+    <param name="scm">git</param>
+    <param name="filename">drbd-test</param>
+<!--
+    To update to a new release, change "revision" to the desired
+    git commit hash and bump "version" if necessary
+
+    <param name="version">0.0.0</param>
+-->
+    <param name="versionformat">0.0.0+git.%h</param>
+    <param name="revision">d32163ea6bf5f36ddc9d4f40d247ade122926250</param>
+  </service>
+
+  <service name="recompress" mode="disabled">
+    <param name="file">*drbd-test*.tar</param>
+    <param name="compression">bz2</param>
+  </service>
+
+  <service name="set_version" mode="disabled">
+    <param name="basename">drbd-test</param>
+  </service>
+</services>

@@ -1,0 +1,23 @@
+-------------------------------------------------------------------
+Fri Aug 12 08:54:15 UTC 2016 - nwang@suse.com
+
+- Add patch fix-resync-never-connected.KNOWN.patch
+- Ready cases:
+    connect
+    initial-resync
+    latency
+    misaligned-bio
+    switch-primaries
+    ref-count
+    add-connect-delete
+    add-path-multiple-times
+    ahead-behind.KNOWN
+    resize.KNOWN
+    resync-never-connected.KNOWN
+
+-------------------------------------------------------------------
+Thu Aug 11 06:50:08 UTC 2016 - nwang@suse.com
+
+- Initial packaging. 
+- Git-Hash: d32163ea6bf5f36ddc9d4f40d247ade122926250
+

@@ -1,0 +1,24 @@
+<services>
+  <service name="tar_scm" mode="disabled">
+    <param name="url">http://git.drbd.org/logscan.git/</param>
+    <param name="scm">git</param>
+    <param name="filename">logscan</param>
+<!--
+    To update to a new release, change "revision" to the desired
+    git commit hash and bump "version" if necessary
+
+    <param name="version">1.5.2</param>
+-->
+    <param name="versionformat">1.5.2+git.%h</param>
+    <param name="revision">e72f5f55b632b62958860bff1fcd382df51d328e</param>
+  </service>
+
+  <service name="recompress" mode="disabled">
+    <param name="file">*logscan*.tar</param>
+    <param name="compression">bz2</param>
+  </service>
+
+  <service name="set_version" mode="disabled">
+    <param name="basename">logscan</param>
+  </service>
+</services>

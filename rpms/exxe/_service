@@ -1,0 +1,24 @@
+<services>
+  <service name="tar_scm" mode="disabled">
+    <param name="url">http://git.drbd.org/exxe.git/</param>
+    <param name="scm">git</param>
+    <param name="filename">exxe</param>
+<!--
+    To update to a new release, change "revision" to the desired
+    git commit hash and bump "version" if necessary
+
+    <param name="version">0.8.1</param>
+-->
+    <param name="versionformat">0.8.1+git.%h</param>
+    <param name="revision">7781be191426486aeae1bd011c6ae600d05f40f1</param>
+  </service>
+
+  <service name="recompress" mode="disabled">
+    <param name="file">*exxe*.tar</param>
+    <param name="compression">bz2</param>
+  </service>
+
+  <service name="set_version" mode="disabled">
+    <param name="basename">exxe</param>
+  </service>
+</services>

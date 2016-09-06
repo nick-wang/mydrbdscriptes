@@ -1,0 +1,18 @@
+2016-08-31T11:39:50.913013+08:00 exists -
+2016-08-31T11:39:51.324862+08:00 create resource name:add-path-multiple-times-20160831-113950 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:39:51.326980+08:00 create device name:add-path-multiple-times-20160831-113950 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:39:51.366442+08:00 change device name:add-path-multiple-times-20160831-113950 volume:0 minor:138 disk:Attaching size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:39:51.371149+08:00 change device name:add-path-multiple-times-20160831-113950 volume:0 minor:138 disk:Inconsistent size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:39:51.374920+08:00 create connection name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:39:51.374920+08:00 create peer-device name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:39:51.381154+08:00 create path name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:39:51.387080+08:00 change connection name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected congested:no
+2016-08-31T11:39:51.393396+08:00 change connection name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:40:08.522052+08:00 change connection name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting
+2016-08-31T11:40:08.529427+08:00 change connection name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:40:08.534179+08:00 destroy peer-device name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0
+2016-08-31T11:40:08.534179+08:00 destroy connection name:add-path-multiple-times-20160831-113950 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:40:08.536770+08:00 change device name:add-path-multiple-times-20160831-113950 volume:0 minor:138 disk:Detaching size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:1
+2016-08-31T11:40:08.536811+08:00 change device name:add-path-multiple-times-20160831-113950 volume:0 minor:138 disk:Diskless size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:40:08.539588+08:00 destroy device name:add-path-multiple-times-20160831-113950 volume:0 minor:138
+2016-08-31T11:40:08.545406+08:00 destroy resource name:add-path-multiple-times-20160831-113950

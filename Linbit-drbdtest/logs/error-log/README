@@ -1,0 +1,6 @@
+should no 'Timeout' and 'Traceback'
+Timeout waiting for patterns to match
+Pattern 'peer-device .* peer-disk:(Inconsistent|Diskless)' does not match in drbdtest-manually-rpm-1:drbdtest-manually-rpm-2:0 (lines 1-28)
+Pattern 'peer-device .* peer-disk:(Inconsistent|Diskless)' does not match in drbdtest-manually-rpm-2:drbdtest-manually-rpm-1:0 (lines 1-23)
+Traceback (most recent call last):
+

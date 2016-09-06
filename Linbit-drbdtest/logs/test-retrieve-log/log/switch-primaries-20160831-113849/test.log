@@ -1,0 +1,994 @@
+drbd-sp2-autotest-1: test -d /usr/share/drbd-test
+drbd-sp2-autotest-1: timeout 30
+drbd-sp2-autotest-1: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-1: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=switch-primaries-20160831-113849 EXXE_IDENT=exxe/switch-primaries-20160831-113849 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/switch-primaries-20160831-113849/drbd.conf'
+drbd-sp2-autotest-1: hostname -f
+drbd-sp2-autotest-1: drbd-version
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: test -d /usr/share/drbd-test
+drbd-sp2-autotest-2: timeout 30
+drbd-sp2-autotest-2: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-2: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=switch-primaries-20160831-113849 EXXE_IDENT=exxe/switch-primaries-20160831-113849 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/switch-primaries-20160831-113849/drbd.conf'
+drbd-sp2-autotest-2: hostname -f
+drbd-sp2-autotest-2: drbd-version
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: rsyslogd drbd-sp2-autotest-1 5140
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: disable-faults
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: register-cleanup -t bash -c '! [ -e /proc/drbd ] || drbdsetup down $DRBD_TEST_JOB'
+drbd-sp2-autotest-1: create-disk --internal-meta --max-peers 1 --job switch-primaries-20160831-113849 --volume-group scratch --size 4M switch-primaries-20160831-113849-disk0
+drbd-sp2-autotest-2: create-disk --internal-meta --max-peers 1 --job switch-primaries-20160831-113849 --volume-group scratch --size 4M switch-primaries-20160831-113849-disk0
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm up all -v
+drbd-sp2-autotest-1: drbdsetup new-resource switch-primaries-20160831-113849 0 
+drbd-sp2-autotest-1: drbdsetup new-minor switch-primaries-20160831-113849 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/switch-primaries-20160831-113849-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/switch-primaries-20160831-113849-disk0 /dev/scratch/switch-primaries-20160831-113849-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer switch-primaries-20160831-113849 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path switch-primaries-20160831-113849 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect switch-primaries-20160831-113849 1 
+drbd-sp2-autotest-2: drbdsetup new-resource switch-primaries-20160831-113849 1 
+drbd-sp2-autotest-2: drbdsetup new-minor switch-primaries-20160831-113849 138 0 
+drbd-sp2-autotest-2: drbdmeta 138 v09 /dev/scratch/switch-primaries-20160831-113849-disk0 internal apply-al 
+drbd-sp2-autotest-2: drbdsetup attach 138 /dev/scratch/switch-primaries-20160831-113849-disk0 /dev/scratch/switch-primaries-20160831-113849-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-2: drbdsetup new-peer switch-primaries-20160831-113849 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path switch-primaries-20160831-113849 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup connect switch-primaries-20160831-113849 0 
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* peer-disk:(Inconsistent|Diskless)
+
+drbd-sp2-autotest-1: drbdadm new-current-uuid --clear-bitmap switch-primaries-20160831-113849/0
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm peer-device-options --c-min-rate 0 all -v
+drbd-sp2-autotest-1: drbdsetup peer-device-options switch-primaries-20160831-113849 1 0 
+drbd-sp2-autotest-2: drbdsetup peer-device-options switch-primaries-20160831-113849 0 0 
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* peer-disk:UpToDate
+
+Loop #0: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #1: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #2: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #3: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #4: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #5: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #6: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #7: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #8: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #9: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #10: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #11: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #12: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #13: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #14: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #15: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #16: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #17: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #18: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #19: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #20: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #21: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #22: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #23: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #24: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #25: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #26: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #27: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #28: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #29: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #30: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #31: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #32: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #33: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #34: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #35: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #36: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #37: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --section write -
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+Loop #38: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Loop #39: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1 -y connection .* role:Secondary
+
+Unchecked loop #0: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #1: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #2: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #3: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #4: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #5: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #6: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #7: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #8: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #9: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #10: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #11: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #12: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #13: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #14: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #15: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #16: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #17: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #18: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #19: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #20: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #21: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #22: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #23: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #24: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #25: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #26: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #27: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #28: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #29: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #30: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #31: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #32: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #33: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #34: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #35: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #36: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+Unchecked loop #37: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #38: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+Unchecked loop #39: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+open loop #0: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #1: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #2: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #3: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #4: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #5: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #6: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #7: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #8: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #9: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #10: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #11: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #12: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #13: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #14: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #15: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #16: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #17: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #18: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #19: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #20: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #21: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #22: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #23: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #24: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #25: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #26: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #27: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #28: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #29: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #30: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #31: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #32: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #33: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #34: node drbd-sp2-autotest-1
+drbd-sp2-autotest-1: fio --section write -
+open loop #35: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #36: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #37: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #38: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+open loop #39: node drbd-sp2-autotest-2
+drbd-sp2-autotest-2: fio --section write -
+drbd-sp2-autotest-1: drbdadm disconnect switch-primaries-20160831-113849:drbd-sp2-autotest-2
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2 -y connection .* connection:StandAlone
+
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+Waiting for event drbd-sp2-autotest-2 -y connection .* role:Primary
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+* Shut down and clean up.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm down all
+Waiting for event drbd-sp2-autotest-1 drbd-sp2-autotest-2 -y destroy resource
+
+drbd-sp2-autotest-1: rmmod drbd_transport_tcp
+drbd-sp2-autotest-2: rmmod drbd_transport_tcp
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: rmmod drbd
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: cleanup
+drbd-sp2-autotest-1:   Logical volume "switch-primaries-20160831-113849-disk0" successfully removed
+drbd-sp2-autotest-2:   Logical volume "switch-primaries-20160831-113849-disk0" successfully removed

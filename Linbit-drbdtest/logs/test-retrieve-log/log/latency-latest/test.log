@@ -1,0 +1,164 @@
+drbd-sp2-autotest-1: test -d /usr/share/drbd-test
+drbd-sp2-autotest-1: timeout 30
+drbd-sp2-autotest-1: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-1: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=latency-20160831-113532 EXXE_IDENT=exxe/latency-20160831-113532 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/latency-20160831-113532/drbd.conf'
+drbd-sp2-autotest-1: hostname -f
+drbd-sp2-autotest-1: drbd-version
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: test -d /usr/share/drbd-test
+drbd-sp2-autotest-2: timeout 30
+drbd-sp2-autotest-2: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-2: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=latency-20160831-113532 EXXE_IDENT=exxe/latency-20160831-113532 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/latency-20160831-113532/drbd.conf'
+drbd-sp2-autotest-2: hostname -f
+drbd-sp2-autotest-2: drbd-version
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: rsyslogd drbd-sp2-autotest-1 5140
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: disable-faults
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: register-cleanup -t bash -c '! [ -e /proc/drbd ] || drbdsetup down $DRBD_TEST_JOB'
+drbd-sp2-autotest-1: create-disk --internal-meta --max-peers 1 --job latency-20160831-113532 --volume-group scratch --size 4M latency-20160831-113532-disk0
+drbd-sp2-autotest-2: create-disk --internal-meta --max-peers 1 --job latency-20160831-113532 --volume-group scratch --size 4M latency-20160831-113532-disk0
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-1: ip -o route get 192.168.122.27
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm up all -v
+drbd-sp2-autotest-1: drbdsetup new-resource latency-20160831-113532 0 
+drbd-sp2-autotest-1: drbdsetup new-minor latency-20160831-113532 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/latency-20160831-113532-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/latency-20160831-113532-disk0 /dev/scratch/latency-20160831-113532-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer latency-20160831-113532 1 --_name=drbd-sp2-autotest-2 --rcvbuf-size=4M --sndbuf-size=4M --ping-timeout=30 
+drbd-sp2-autotest-1: drbdsetup new-path latency-20160831-113532 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect latency-20160831-113532 1 
+drbd-sp2-autotest-2: drbdsetup new-resource latency-20160831-113532 1 
+drbd-sp2-autotest-2: drbdsetup new-minor latency-20160831-113532 138 0 
+drbd-sp2-autotest-2: drbdmeta 138 v09 /dev/scratch/latency-20160831-113532-disk0 internal apply-al 
+drbd-sp2-autotest-2: drbdsetup attach 138 /dev/scratch/latency-20160831-113532-disk0 /dev/scratch/latency-20160831-113532-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-2: drbdsetup new-peer latency-20160831-113532 0 --_name=drbd-sp2-autotest-1 --rcvbuf-size=4M --sndbuf-size=4M --ping-timeout=30 
+drbd-sp2-autotest-2: drbdsetup new-path latency-20160831-113532 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup connect latency-20160831-113532 0 
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* peer-disk:(Inconsistent|Diskless)
+
+drbd-sp2-autotest-1: drbdadm primary --force all -v
+drbd-sp2-autotest-1: drbdsetup primary latency-20160831-113532 --force 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1:0 -y device .* disk:UpToDate
+
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 -y peer-device .* peer-disk:UpToDate
+
+drbd-sp2-autotest-1: fio --runtime=15 --section write -
+{'iops': 56333.0, 'bw': 225333000.0, 'runt': 0.018000000000000002, 'io': 4056000.0}
+{'runt': 0.018000000000000002, 'io': 4056000.0, 'minb': 225333000.0, 'maxt': 0.018000000000000002, 'iops': 56333.0, 'bw': 225333000.0, 'maxb': 225333000.0, 'mint': 0.018000000000000002, 'aggrb': 225333000.0}
+drbd-sp2-autotest-1: fio --rwmixread=100 --runtime=15 --section bench -
+{'runt': 14.998000000000001, 'io': 7174.3, 'min': 2.9999999999999997e-05, 'max': 0.0030429999999999997, 'iops': 122456.0, 'bw': 489827000.0, 'stdev': 3.059e-05, 'avg': 0.00012333}
+{'runt': 14.998000000000001, 'io': 7174.3, 'min': 2.9999999999999997e-05, 'max': 0.0030429999999999997, 'minb': 489826000.0, 'maxt': 14.998000000000001, 'iops': 122456.0, 'bw': 489827000.0, 'stdev': 3.059e-05, 'maxb': 489826000.0, 'avg': 0.00012333, 'mint': 14.998000000000001, 'aggrb': 489826000.0}
+<measurement> | iops-read | rd-connected-prot-C-rd | 122456.0
+rd-connected-prot-C-rd: read  122456.000000 IOPs ({'runt': 14.998000000000001, 'io': 7174.3, 'min': 2.9999999999999997e-05, 'max': 0.0030429999999999997, 'minb': 489826000.0, 'maxt': 14.998000000000001, 'iops': 122456.0, 'bw': 489827000.0, 'stdev': 3.059e-05, 'maxb': 489826000.0, 'avg': 0.00012333, 'mint': 14.998000000000001, 'aggrb': 489826000.0})
+drbd-sp2-autotest-1: fio --rwmixread=0 --runtime=15 --section bench -
+{'runt': 15.0, 'io': 1485.8, 'min': 7.7e-05, 'max': 0.0045899999999999995, 'iops': 25355.0, 'bw': 101423000.0, 'stdev': 0.00019041999999999998, 'avg': 0.00058141}
+{'runt': 15.0, 'io': 1485.8, 'min': 7.7e-05, 'max': 0.0045899999999999995, 'minb': 101423000.0, 'maxt': 15.0, 'iops': 25355.0, 'bw': 101423000.0, 'stdev': 0.00019041999999999998, 'maxb': 101423000.0, 'avg': 0.00058141, 'mint': 15.0, 'aggrb': 101423000.0}
+<measurement> | iops | wr-connected-prot-C-rd | 25355.0
+wr-connected-prot-C-rd: write 25355.000000 IOPs ({'runt': 15.0, 'io': 1485.8, 'min': 7.7e-05, 'max': 0.0045899999999999995, 'minb': 101423000.0, 'maxt': 15.0, 'iops': 25355.0, 'bw': 101423000.0, 'stdev': 0.00019041999999999998, 'maxb': 101423000.0, 'avg': 0.00058141, 'mint': 15.0, 'aggrb': 101423000.0})
+drbd-sp2-autotest-1: fio --rwmixread=50 --runtime=15 --section bench -
+{'runt': 14.999, 'io': 1177.5, 'min': 1e-06, 'max': 0.001537, 'iops': 20097.0, 'bw': 80388000.0, 'stdev': 0.00013152999999999998, 'avg': 0.00030892}
+{'runt': 15.0, 'io': 1072.3, 'min': 5.1e-05, 'max': 0.0024219999999999997, 'iops': 18295.0, 'bw': 73184000.0, 'stdev': 0.00015338999999999997, 'avg': 0.00045733999999999993}
+{'runt': 14.999, 'io': 1177.5, 'min': 1e-06, 'max': 0.001537, 'minb': 80388000.0, 'maxt': 14.999, 'iops': 20097.0, 'bw': 80388000.0, 'stdev': 0.00013152999999999998, 'maxb': 80388000.0, 'avg': 0.00030892, 'mint': 14.999, 'aggrb': 80388000.0}
+{'runt': 15.0, 'io': 1072.3, 'min': 5.1e-05, 'max': 0.0024219999999999997, 'minb': 73183000.0, 'maxt': 15.0, 'iops': 18295.0, 'bw': 73184000.0, 'stdev': 0.00015338999999999997, 'maxb': 73183000.0, 'avg': 0.00045733999999999993, 'mint': 15.0, 'aggrb': 73183000.0}
+<measurement> | iops | rw-connected-prot-C-rd | 18295.0
+rw-connected-prot-C-rd: write 18295.000000 IOPs ({'runt': 15.0, 'io': 1072.3, 'min': 5.1e-05, 'max': 0.0024219999999999997, 'minb': 73183000.0, 'maxt': 15.0, 'iops': 18295.0, 'bw': 73184000.0, 'stdev': 0.00015338999999999997, 'maxb': 73183000.0, 'avg': 0.00045733999999999993, 'mint': 15.0, 'aggrb': 73183000.0})
+<measurement> | iops-read | rw-connected-prot-C-rd | 20097.0
+rw-connected-prot-C-rd: read  20097.000000 IOPs ({'runt': 14.999, 'io': 1177.5, 'min': 1e-06, 'max': 0.001537, 'minb': 80388000.0, 'maxt': 14.999, 'iops': 20097.0, 'bw': 80388000.0, 'stdev': 0.00013152999999999998, 'maxb': 80388000.0, 'avg': 0.00030892, 'mint': 14.999, 'aggrb': 80388000.0})
+drbd-sp2-autotest-1: drbdsetup net-options latency-20160831-113532 1 --protocol=A
+drbd-sp2-autotest-1: fio --rwmixread=100 --runtime=15 --section bench -
+{'runt': 14.998000000000001, 'io': 7329.8, 'min': 3.2e-05, 'max': 0.0012389999999999999, 'iops': 125111.0, 'bw': 500444000.0, 'stdev': 2.8729999999999998e-05, 'avg': 0.00012080999999999999}
+{'runt': 14.998000000000001, 'io': 7329.8, 'min': 3.2e-05, 'max': 0.0012389999999999999, 'minb': 500444000.0, 'maxt': 14.998000000000001, 'iops': 125111.0, 'bw': 500444000.0, 'stdev': 2.8729999999999998e-05, 'maxb': 500444000.0, 'avg': 0.00012080999999999999, 'mint': 14.998000000000001, 'aggrb': 500444000.0}
+<measurement> | iops-read | rd-connected-prot-A | 125111.0
+rd-connected-prot-A: read  125111.000000 IOPs ({'runt': 14.998000000000001, 'io': 7329.8, 'min': 3.2e-05, 'max': 0.0012389999999999999, 'minb': 500444000.0, 'maxt': 14.998000000000001, 'iops': 125111.0, 'bw': 500444000.0, 'stdev': 2.8729999999999998e-05, 'maxb': 500444000.0, 'avg': 0.00012080999999999999, 'mint': 14.998000000000001, 'aggrb': 500444000.0})
+drbd-sp2-autotest-1: fio --rwmixread=0 --runtime=15 --section bench -
+{'runt': 14.999, 'io': 2155.8, 'min': 1e-06, 'max': 0.0021739999999999997, 'iops': 36793.0, 'bw': 147175000.0, 'stdev': 0.00019624, 'avg': 0.0003965}
+{'runt': 14.999, 'io': 2155.8, 'min': 1e-06, 'max': 0.0021739999999999997, 'minb': 147175000.0, 'maxt': 14.999, 'iops': 36793.0, 'bw': 147175000.0, 'stdev': 0.00019624, 'maxb': 147175000.0, 'avg': 0.0003965, 'mint': 14.999, 'aggrb': 147175000.0}
+<measurement> | iops | wr-connected-prot-A | 36793.0
+wr-connected-prot-A: write 36793.000000 IOPs ({'runt': 14.999, 'io': 2155.8, 'min': 1e-06, 'max': 0.0021739999999999997, 'minb': 147175000.0, 'maxt': 14.999, 'iops': 36793.0, 'bw': 147175000.0, 'stdev': 0.00019624, 'maxb': 147175000.0, 'avg': 0.0003965, 'mint': 14.999, 'aggrb': 147175000.0})
+drbd-sp2-autotest-1: fio --rwmixread=50 --runtime=15 --section bench -
+{'runt': 14.999, 'io': 1112.6, 'min': 3.6e-05, 'max': 0.002237, 'iops': 18988.0, 'bw': 75953000.0, 'stdev': 0.00016112, 'avg': 0.00039167}
+{'runt': 14.999, 'io': 1012.1, 'min': 1e-06, 'max': 0.002288, 'iops': 17287.0, 'bw': 69151000.0, 'stdev': 0.0001643, 'avg': 0.00040513999999999996}
+{'runt': 14.999, 'io': 1112.6, 'min': 3.6e-05, 'max': 0.002237, 'minb': 75953000.0, 'maxt': 14.999, 'iops': 18988.0, 'bw': 75953000.0, 'stdev': 0.00016112, 'maxb': 75953000.0, 'avg': 0.00039167, 'mint': 14.999, 'aggrb': 75953000.0}
+{'runt': 14.999, 'io': 1012.1, 'min': 1e-06, 'max': 0.002288, 'minb': 69151000.0, 'maxt': 14.999, 'iops': 17287.0, 'bw': 69151000.0, 'stdev': 0.0001643, 'maxb': 69151000.0, 'avg': 0.00040513999999999996, 'mint': 14.999, 'aggrb': 69151000.0}
+<measurement> | iops | rw-connected-prot-A | 17287.0
+rw-connected-prot-A: write 17287.000000 IOPs ({'runt': 14.999, 'io': 1012.1, 'min': 1e-06, 'max': 0.002288, 'minb': 69151000.0, 'maxt': 14.999, 'iops': 17287.0, 'bw': 69151000.0, 'stdev': 0.0001643, 'maxb': 69151000.0, 'avg': 0.00040513999999999996, 'mint': 14.999, 'aggrb': 69151000.0})
+<measurement> | iops-read | rw-connected-prot-A | 18988.0
+rw-connected-prot-A: read  18988.000000 IOPs ({'runt': 14.999, 'io': 1112.6, 'min': 3.6e-05, 'max': 0.002237, 'minb': 75953000.0, 'maxt': 14.999, 'iops': 18988.0, 'bw': 75953000.0, 'stdev': 0.00016112, 'maxb': 75953000.0, 'avg': 0.00039167, 'mint': 14.999, 'aggrb': 75953000.0})
+drbd-sp2-autotest-1: tc qdisc add dev eth0 root netem delay 50ms
+drbd-sp2-autotest-1: fio --rwmixread=100 --runtime=15 --section bench -
+{'runt': 14.998000000000001, 'io': 7306.9, 'min': 1e-06, 'max': 0.001186, 'iops': 124719.0, 'bw': 498878000.0, 'stdev': 2.676e-05, 'avg': 0.00012115}
+{'runt': 14.998000000000001, 'io': 7306.9, 'min': 1e-06, 'max': 0.001186, 'minb': 498877000.0, 'maxt': 14.998000000000001, 'iops': 124719.0, 'bw': 498878000.0, 'stdev': 2.676e-05, 'maxb': 498877000.0, 'avg': 0.00012115, 'mint': 14.998000000000001, 'aggrb': 498877000.0}
+<measurement> | iops-read | rd-connected-prot-A-delayed | 124719.0
+rd-connected-prot-A-delayed: read  124719.000000 IOPs ({'runt': 14.998000000000001, 'io': 7306.9, 'min': 1e-06, 'max': 0.001186, 'minb': 498877000.0, 'maxt': 14.998000000000001, 'iops': 124719.0, 'bw': 498878000.0, 'stdev': 2.676e-05, 'maxb': 498877000.0, 'avg': 0.00012115, 'mint': 14.998000000000001, 'aggrb': 498877000.0})
+drbd-sp2-autotest-1: fio --rwmixread=0 --runtime=15 --section bench -
+{'runt': 15.031, 'io': 448512000.0, 'min': 2e-06, 'max': 0.32309699999999997, 'iops': 7459.0, 'bw': 29839000.0, 'stdev': 0.00992604, 'avg': 0.00209568}
+{'runt': 15.031, 'io': 448512000.0, 'min': 2e-06, 'max': 0.32309699999999997, 'minb': 29839000.0, 'maxt': 15.031, 'iops': 7459.0, 'bw': 29839000.0, 'stdev': 0.00992604, 'maxb': 29839000.0, 'avg': 0.00209568, 'mint': 15.031, 'aggrb': 29839000.0}
+<measurement> | iops | wr-connected-prot-A-delayed | 7459.0
+wr-connected-prot-A-delayed: write 7459.000000 IOPs ({'runt': 15.031, 'io': 448512000.0, 'min': 2e-06, 'max': 0.32309699999999997, 'minb': 29839000.0, 'maxt': 15.031, 'iops': 7459.0, 'bw': 29839000.0, 'stdev': 0.00992604, 'maxb': 29839000.0, 'avg': 0.00209568, 'mint': 15.031, 'aggrb': 29839000.0})
+drbd-sp2-autotest-1: fio --rwmixread=50 --runtime=15 --section bench -
+{'runt': 15.028, 'io': 434644000.0, 'min': 2.9e-05, 'max': 0.074974, 'iops': 7230.0, 'bw': 28922000.0, 'stdev': 0.0021159, 'avg': 0.00038374}
+{'runt': 15.028, 'io': 395712000.0, 'min': 1e-06, 'max': 0.086252, 'iops': 6582.0, 'bw': 26332000.0, 'stdev': 0.01003753, 'avg': 0.00192439}
+{'runt': 15.028, 'io': 434644000.0, 'min': 2.9e-05, 'max': 0.074974, 'minb': 28922000.0, 'maxt': 15.028, 'iops': 7230.0, 'bw': 28922000.0, 'stdev': 0.0021159, 'maxb': 28922000.0, 'avg': 0.00038374, 'mint': 15.028, 'aggrb': 28922000.0}
+{'runt': 15.028, 'io': 395712000.0, 'min': 1e-06, 'max': 0.086252, 'minb': 26331000.0, 'maxt': 15.028, 'iops': 6582.0, 'bw': 26332000.0, 'stdev': 0.01003753, 'maxb': 26331000.0, 'avg': 0.00192439, 'mint': 15.028, 'aggrb': 26331000.0}
+<measurement> | iops | rw-connected-prot-A-delayed | 6582.0
+rw-connected-prot-A-delayed: write 6582.000000 IOPs ({'runt': 15.028, 'io': 395712000.0, 'min': 1e-06, 'max': 0.086252, 'minb': 26331000.0, 'maxt': 15.028, 'iops': 6582.0, 'bw': 26332000.0, 'stdev': 0.01003753, 'maxb': 26331000.0, 'avg': 0.00192439, 'mint': 15.028, 'aggrb': 26331000.0})
+<measurement> | iops-read | rw-connected-prot-A-delayed | 7230.0
+rw-connected-prot-A-delayed: read  7230.000000 IOPs ({'runt': 15.028, 'io': 434644000.0, 'min': 2.9e-05, 'max': 0.074974, 'minb': 28922000.0, 'maxt': 15.028, 'iops': 7230.0, 'bw': 28922000.0, 'stdev': 0.0021159, 'maxb': 28922000.0, 'avg': 0.00038374, 'mint': 15.028, 'aggrb': 28922000.0})
+drbd-sp2-autotest-1: tc qdisc del dev eth0 root
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary latency-20160831-113532 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+drbd-sp2-autotest-1: drbdadm disconnect latency-20160831-113532:drbd-sp2-autotest-2
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2 -y connection .* connection:StandAlone
+
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary latency-20160831-113532 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: fio --rwmixread=100 --runtime=15 --section bench -
+{'runt': 14.998000000000001, 'io': 7022.5, 'min': 2e-06, 'max': 0.001266, 'iops': 119865.0, 'bw': 479462000.0, 'stdev': 2.996e-05, 'avg': 0.00012602}
+{'runt': 14.998000000000001, 'io': 7022.5, 'min': 2e-06, 'max': 0.001266, 'minb': 479462000.0, 'maxt': 14.998000000000001, 'iops': 119865.0, 'bw': 479462000.0, 'stdev': 2.996e-05, 'maxb': 479462000.0, 'avg': 0.00012602, 'mint': 14.998000000000001, 'aggrb': 479462000.0}
+<measurement> | iops-read | rd-unconnected | 119865.0
+rd-unconnected: read  119865.000000 IOPs ({'runt': 14.998000000000001, 'io': 7022.5, 'min': 2e-06, 'max': 0.001266, 'minb': 479462000.0, 'maxt': 14.998000000000001, 'iops': 119865.0, 'bw': 479462000.0, 'stdev': 2.996e-05, 'maxb': 479462000.0, 'avg': 0.00012602, 'mint': 14.998000000000001, 'aggrb': 479462000.0})
+drbd-sp2-autotest-1: fio --rwmixread=0 --runtime=15 --section bench -
+{'runt': 14.998000000000001, 'io': 7252.9, 'min': 2e-06, 'max': 0.00125, 'iops': 123798.0, 'bw': 495194000.0, 'stdev': 3.551e-05, 'avg': 0.00012007}
+{'runt': 14.998000000000001, 'io': 7252.9, 'min': 2e-06, 'max': 0.00125, 'minb': 495194000.0, 'maxt': 14.998000000000001, 'iops': 123798.0, 'bw': 495194000.0, 'stdev': 3.551e-05, 'maxb': 495194000.0, 'avg': 0.00012007, 'mint': 14.998000000000001, 'aggrb': 495194000.0}
+<measurement> | iops | wr-unconnected | 123798.0
+wr-unconnected: write 123798.000000 IOPs ({'runt': 14.998000000000001, 'io': 7252.9, 'min': 2e-06, 'max': 0.00125, 'minb': 495194000.0, 'maxt': 14.998000000000001, 'iops': 123798.0, 'bw': 495194000.0, 'stdev': 3.551e-05, 'maxb': 495194000.0, 'avg': 0.00012007, 'mint': 14.998000000000001, 'aggrb': 495194000.0})
+drbd-sp2-autotest-1: fio --rwmixread=50 --runtime=15 --section bench -
+{'runt': 14.997, 'io': 3125.5, 'min': 3.7e-05, 'max': 0.004197, 'iops': 53344.0, 'bw': 213379000.0, 'stdev': 3.912e-05, 'avg': 0.00013791999999999998}
+{'runt': 14.998000000000001, 'io': 2845.3, 'min': 2.2e-05, 'max': 0.004262, 'iops': 48564.0, 'bw': 194259000.0, 'stdev': 4.859e-05, 'avg': 0.00015601}
+{'runt': 14.997, 'io': 3125.5, 'min': 3.7e-05, 'max': 0.004197, 'minb': 213379000.0, 'maxt': 14.997, 'iops': 53344.0, 'bw': 213379000.0, 'stdev': 3.912e-05, 'maxb': 213379000.0, 'avg': 0.00013791999999999998, 'mint': 14.997, 'aggrb': 213379000.0}
+{'runt': 14.998000000000001, 'io': 2845.3, 'min': 2.2e-05, 'max': 0.004262, 'minb': 194258000.0, 'maxt': 14.998000000000001, 'iops': 48564.0, 'bw': 194259000.0, 'stdev': 4.859e-05, 'maxb': 194258000.0, 'avg': 0.00015601, 'mint': 14.998000000000001, 'aggrb': 194258000.0}
+<measurement> | iops | rw-unconnected | 48564.0
+rw-unconnected: write 48564.000000 IOPs ({'runt': 14.998000000000001, 'io': 2845.3, 'min': 2.2e-05, 'max': 0.004262, 'minb': 194258000.0, 'maxt': 14.998000000000001, 'iops': 48564.0, 'bw': 194259000.0, 'stdev': 4.859e-05, 'maxb': 194258000.0, 'avg': 0.00015601, 'mint': 14.998000000000001, 'aggrb': 194258000.0})
+<measurement> | iops-read | rw-unconnected | 53344.0
+rw-unconnected: read  53344.000000 IOPs ({'runt': 14.997, 'io': 3125.5, 'min': 3.7e-05, 'max': 0.004197, 'minb': 213379000.0, 'maxt': 14.997, 'iops': 53344.0, 'bw': 213379000.0, 'stdev': 3.912e-05, 'maxb': 213379000.0, 'avg': 0.00013791999999999998, 'mint': 14.997, 'aggrb': 213379000.0})
+* Shut down and clean up.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm down all
+Waiting for event drbd-sp2-autotest-1 drbd-sp2-autotest-2 -y destroy resource
+
+drbd-sp2-autotest-1: rmmod drbd_transport_tcp
+drbd-sp2-autotest-2: rmmod drbd_transport_tcp
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: rmmod drbd
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: cleanup
+drbd-sp2-autotest-1:   Logical volume "latency-20160831-113532-disk0" successfully removed
+drbd-sp2-autotest-2:   Logical volume "latency-20160831-113532-disk0" successfully removed

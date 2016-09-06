@@ -1,0 +1,17 @@
+2016-08-31T11:35:01.753375+08:00 exists resource name:connect-20160831-113500 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:35:01.753375+08:00 exists connection name:connect-20160831-113500 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting role:Unknown congested:no
+2016-08-31T11:35:01.753375+08:00 exists connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting role:Unknown congested:no
+2016-08-31T11:35:01.753474+08:00 exists -
+2016-08-31T11:35:02.210014+08:00 change path name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.27:7789 established:yes
+2016-08-31T11:35:02.210135+08:00 change path name:connect-20160831-113500 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.23:7789 established:yes
+2016-08-31T11:35:02.394729+08:00 change connection name:connect-20160831-113500 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connected role:Secondary
+2016-08-31T11:35:02.402162+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connected role:Secondary
+2016-08-31T11:35:10.836887+08:00 change connection name:connect-20160831-113500 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Disconnecting role:Unknown
+2016-08-31T11:35:10.837969+08:00 change path name:connect-20160831-113500 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:35:10.838027+08:00 change connection name:connect-20160831-113500 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone
+2016-08-31T11:35:11.843230+08:00 destroy connection name:connect-20160831-113500 peer-node-id:0 conn-name:drbd-sp2-autotest-1
+2016-08-31T11:35:11.853317+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting role:Unknown
+2016-08-31T11:35:11.853371+08:00 change path name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:35:11.853397+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:35:12.836475+08:00 destroy connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:35:12.836716+08:00 destroy resource name:connect-20160831-113500

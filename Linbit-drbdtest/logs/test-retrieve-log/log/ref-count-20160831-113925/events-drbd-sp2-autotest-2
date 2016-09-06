@@ -1,0 +1,7 @@
+2016-08-31T11:39:25.557303+08:00 exists resource name:ref-count-20160831-113925 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:39:25.557303+08:00 exists connection name:ref-count-20160831-113925 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting role:Unknown congested:no
+2016-08-31T11:39:25.557414+08:00 exists -
+2016-08-31T11:39:27.722833+08:00 change connection name:ref-count-20160831-113925 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Disconnecting
+2016-08-31T11:39:27.722881+08:00 change connection name:ref-count-20160831-113925 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone
+2016-08-31T11:39:28.715025+08:00 destroy connection name:ref-count-20160831-113925 peer-node-id:0 conn-name:drbd-sp2-autotest-1
+2016-08-31T11:39:28.715229+08:00 destroy resource name:ref-count-20160831-113925

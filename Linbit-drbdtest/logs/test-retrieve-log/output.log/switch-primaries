@@ -1,0 +1,351 @@
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+Logging to directory log/switch-primaries-20160831-113849
+drbd-sp2-autotest-1: drbdsetup new-resource switch-primaries-20160831-113849 0 
+drbd-sp2-autotest-1: drbdsetup new-minor switch-primaries-20160831-113849 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/switch-primaries-20160831-113849-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/switch-primaries-20160831-113849-disk0 /dev/scratch/switch-primaries-20160831-113849-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer switch-primaries-20160831-113849 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path switch-primaries-20160831-113849 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect switch-primaries-20160831-113849 1 
+drbd-sp2-autotest-2: drbdsetup new-resource switch-primaries-20160831-113849 1 
+drbd-sp2-autotest-2: drbdsetup new-minor switch-primaries-20160831-113849 138 0 
+drbd-sp2-autotest-2: drbdmeta 138 v09 /dev/scratch/switch-primaries-20160831-113849-disk0 internal apply-al 
+drbd-sp2-autotest-2: drbdsetup attach 138 /dev/scratch/switch-primaries-20160831-113849-disk0 /dev/scratch/switch-primaries-20160831-113849-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-2: drbdsetup new-peer switch-primaries-20160831-113849 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path switch-primaries-20160831-113849 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup connect switch-primaries-20160831-113849 0 
+
+drbd-sp2-autotest-1: drbdsetup peer-device-options switch-primaries-20160831-113849 1 0 
+drbd-sp2-autotest-2: drbdsetup peer-device-options switch-primaries-20160831-113849 0 0 
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+drbd-sp2-autotest-2: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+drbd-sp2-autotest-1: drbdsetup primary switch-primaries-20160831-113849 
+
+
+
+
+drbd-sp2-autotest-1:   Logical volume "switch-primaries-20160831-113849-disk0" successfully removed
+drbd-sp2-autotest-2:   Logical volume "switch-primaries-20160831-113849-disk0" successfully removed

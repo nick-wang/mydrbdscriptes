@@ -1,0 +1,46 @@
+global { usage-count no; }
+
+resource add-connect-delete-20160831-113930 {
+          disk {
+               disk-flushes no;
+               md-flushes no;
+               
+          }
+
+          net {
+               
+          }
+
+          on drbd-sp2-autotest-1 {
+               node-id 0;
+               volume 0 {
+                    device /dev/drbd138;
+                    disk /dev/scratch/add-connect-delete-20160831-113930-disk0;
+                    meta-disk internal;
+               }
+
+          }
+
+          on drbd-sp2-autotest-2 {
+               node-id 1;
+               volume 0 {
+                    device /dev/drbd138;
+                    disk /dev/scratch/add-connect-delete-20160831-113930-disk0;
+                    meta-disk internal;
+               }
+
+          }
+
+          connection {
+               net {
+               }
+
+               path {
+                    host drbd-sp2-autotest-1 address 192.168.122.23:7789;
+                    host drbd-sp2-autotest-2 address 192.168.122.27:7789;
+               }
+
+          }
+
+}
+

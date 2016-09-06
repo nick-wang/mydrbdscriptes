@@ -1,0 +1,13 @@
+drbd-test-sp2-manually-2: 2016-08-11T13:14:29.181712+08:00 drbd-test-sp2-manually-2 kernel: [ 6234.666525] drbd ahead-behind.KNOWN-20160811-131426/0 drbd138 drbd-test-sp2-manually-1: ASSERTION (n_oos - peer_device->rs_failed) == 0 FAILED in drbd_resync_finished
+drbd-test-sp2-manually-1:   drbd-test-sp2-manually-1: Logical volume scratch/ahead-behind.KNOWN-20160811-131426-disk0 is used by another device.drbd-test-sp2-manually-1: 
+
+drbd-test-sp2-manually-1: cleanup failed with status 1drbd-test-sp2-manually-2:   drbd-test-sp2-manually-2: Logical volume scratch/ahead-behind.KNOWN-20160811-131426-disk0 is used by another device.drbd-test-sp2-manually-2: 
+
+drbd-test-sp2-manually-2: cleanup failed with status 1Exception KeyError: KeyError(139859303114496,) in <module 'threading' from '/usr/lib64/python2.7/threading.pyc'> ignored
+Done
+Starting Clean up the environment after case: ahead-behind.KNOWN
+Cleaning... drbd-test-sp2-manually-4
+Cleaning... drbd-test-sp2-manually-1
+Cleaning... drbd-test-sp2-manually-3
+Cleaning... drbd-test-sp2-manually-2
+

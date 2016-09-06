@@ -1,0 +1,129 @@
+Disk size? more bigger
+http://download.opensuse.org/repositories/devel:/tools:/scm/SLE_12_SP1/                  git-repo
+http://download.opensuse.org/repositories/benchmark/SLE_12_SP1/                          fio-repo
+# Change to specific version for "pcre-devel" package
+http://147.2.207.1/dist/install/SLP/SLE-12-SP2-SDK-Beta3/x86_64/DVD1/                    sdk-repo
+
+  $ zypper in git fio gcc
+  $ mkdir /drbdtest; cd /drbdtest
+  $ git clone git://git.linbit.com/drbd-test.git drbd-test.git
+  $ git clone http://git.drbd.org/exxe.git/ exxe.git
+  $ git clone http://git.drbd.org/logscan.git/ logscan.git
+
+Build rpm in obs: home:wanghaisu:drbd-test-rpms
+
+
+1) exxe (all nodes)
+  $ ./bootstrap
+  $ ./configure
+  $ make
+  $ make check
+  $ make install
+
+2) logscan (coordinator)
+  configure: error: pcre.h was not found; is package pcre-devel or libpcre3-dev installed?
+  $ ./bootstrap
+  $ ./configure
+  $ make
+  $ make install
+
+Modify logscan.c:
+  //fprintf(info, "Pattern '%s' matches %sat %s:%u; [",
+  fprintf(info, "Pattern '%s' matches %sat %s:%u\n",
+  //print_matches_as_JSON(info, line, pattern);
+  //fprintf(info, "]\n");
+
+  $ make check
+  $ make install
+
+3) drbd-test (all hosts) - make on coordinator, install on all hosts
+  Enter into target/
+   $ make
+   $ make install
+
+./drbd/addVirioDisk.sh ${CLUSTER_FILE} 1 "/mnt/vm/sles_nick" 3G
+4) create VG "scratch" on all nodes
+  $ vgcreate scratch /dev/vdb
+
+
+######## RPM version
+1. vim /root/.bashrc
+  export PEERS=(drbdtest-manually-rpm-1 drbdtest-manually-rpm-2 drbdtest-manually-rpm-3)
+  export PEER2=(drbdtest-manually-rpm-1 drbdtest-manually-rpm-2)
+  #cd /drbdtest/drbd-test
+2. mkdir /drbdtest
+3. Add repo and install fio,(git), exxe, logscan, drbd-test:
+   http://download.suse.de/ibs/home:/wanghaisu:/drbd-test-rpms/SLE_12_SP2/
+   $ zypper in drbd-test
+4. Create lvm:
+   pvcreate xxx
+   $ vgcreate scratch xxx
+5. Copy scripts to hosts:   all-in-one.sh  cleanup.sh   show.sh
+   ln -s ~/xxx.sh   /drbdtest
+   ln -s /usr/share/drbd-test /drbdtest/drbd-test
+6. On host:
+   zypper in -t srcpackage drbd-test
+   cp /usr/src/packages/SOURCES/drbd-test-*.tar.bz2 /drbdtest
+   pushd /drbdtest; tar xvf drbd-test-*.tar.bz2 ; pushd drbd-test-*
+
+
+#### Test results:
+PEERS=(drbd-test-sp2-manually-1 drbd-test-sp2-manually-2 drbd-test-sp2-manually-3 drbd-test-sp2-manually-4)
+PEER=(drbd-test-sp2-manually-2 drbd-test-sp2-manually-3 drbd-test-sp2-manually-4)
+PEER2=(drbd-test-sp2-manually-1 drbd-test-sp2-manually-2)
+
+connect OK:
+./tests/connect ${PEERS[@]}
+./tests/connect drbd-test-sp2-manually-1 drbd-test-sp2-manually-2 drbd-test-sp2-manually-3
+
+initial-resync OK:
+./tests/initial-resync ${PEERS[@]}
+
+latency OK:   (2 nodes)
+./tests/latency drbd-test-sp2-manually-1 drbd-test-sp2-manually-2
+
+misaligned-bio OK: (2 nodes)
+./tests/misaligned-bio drbd-test-sp2-manually-1 drbd-test-sp2-manually-2
+
+switch-primaries OK: (when using 2 nodes, but not required)
+./tests/switch-primaries drbd-test-sp2-manually-1 drbd-test-sp2-manually-2
+
+ref-count NG?OK? - seems endup without error, should OK:  (2 nodes)
+./tests/ref-count drbd-test-sp2-manually-1 drbd-test-sp2-manually-2
+
+add-connect-delete OK - but first lvm can not be deleted: (2 nodes)
+./tests/add-connect-delete ${PEER2[@]}
+
+add-path-multiple-times OK - but first lvm can not be deleted: (2 nodes)
+./tests/add-path-multiple-times ${PEER2[@]}
+
+ahead-behind.KNOWN OK - but first lvm can not be deleted: (2 nodes or 3 nodes)
+./tests/ahead-behind.KNOW ${PEER2[@]}
+
+resize.KNOWN OK:
+./tests/resize.KNOWN ${PEER2[@]}
+
+resync-never-connected.KNOWN OK with patch: (3 nodes)
+./tests/resync-never-connected.KNOWN drbd-test-sp2-manually-1 drbd-test-sp2-manually-2 drbd-test-sp2-manually-3
+
+============= Split =====================
+
+diskless NG:
+./tests/diskless ${PEERS[@]}
+
+attach-detach.KNOWN NG:
+./tests/attach-detach.KNOWN ${PEERS[@]}
+
+multiple-devices.KNOWN NG
+./tests/multiple-devices.KNOWN ${PEER2[@]}
+
+tl_restart-stress.KNOWN NG - would enable an already enabled connection
+./tests/tl_restart-stress.KNOWN ${PEER2[@]}
+
+multi-path NG? - Need the other path: (2 nodes)
+./tests/multi-path ${PEER2[@]}
+RuntimeError: ('%s has no eth0:1', <python.drbdtest.Node object at 0x7f9acd5b07d0>)
+
+compat-with-84 UNKNOWN (2 nodes)
+./tests/compat-with-84 ${PEER2[@]}
+No /data/drbd-8.4/drbd/drbd.ko

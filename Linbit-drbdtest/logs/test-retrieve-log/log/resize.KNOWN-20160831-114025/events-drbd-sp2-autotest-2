@@ -1,0 +1,86 @@
+2016-08-31T11:40:26.054799+08:00 exists -
+2016-08-31T11:40:26.493151+08:00 create resource name:resize.KNOWN-20160831-114025 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:40:26.494812+08:00 create device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:40:26.602323+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:Attaching size:8152 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:40:26.619131+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:Inconsistent size:8152 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:40:26.626929+08:00 create connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:40:26.626929+08:00 create peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:3632 pending:0 unacked:0
+2016-08-31T11:40:26.637953+08:00 create path name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:40:26.644466+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Unconnected congested:no
+2016-08-31T11:40:26.653822+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting
+2016-08-31T11:40:27.164425+08:00 change path name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:yes
+2016-08-31T11:40:27.226173+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connected role:Secondary
+2016-08-31T11:40:27.226228+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established peer-disk:Inconsistent received:0 sent:0 out-of-sync:3632 pending:0 unacked:0
+2016-08-31T11:40:27.256643+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:27.256643+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 peer-disk:UpToDate received:0 sent:0 out-of-sync:3632 pending:0 unacked:0
+2016-08-31T11:40:27.276747+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:WFBitMapT received:0 sent:0 out-of-sync:8152 pending:0 unacked:0
+2016-08-31T11:40:27.305281+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target
+2016-08-31T11:40:27.318346+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target status:0
+2016-08-31T11:40:27.318922+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:SyncTarget received:0 sent:0 out-of-sync:8152 pending:0 unacked:0
+2016-08-31T11:40:27.326732+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:27.479609+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:27.479682+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:27.585287+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:27.597464+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:27.648593+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target
+2016-08-31T11:40:27.655278+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target status:0
+2016-08-31T11:40:27.655308+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:UpToDate size:8152 read:0 written:8260 al-writes:2 bm-writes:0 upper-pending:0 lower-pending:0 blocked:no
+2016-08-31T11:40:27.655308+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established received:8260 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:27.938600+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:27.983990+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target
+2016-08-31T11:40:28.004649+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target status:0
+2016-08-31T11:40:28.004899+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:Inconsistent size:16344 read:0 written:8260 al-writes:10 bm-writes:0 upper-pending:0 lower-pending:4
+2016-08-31T11:40:28.004899+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:SyncTarget received:8260 sent:0 out-of-sync:8192 pending:0 unacked:0
+2016-08-31T11:40:28.013624+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:28.162093+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:28.162160+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:28.272778+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:28.374835+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target
+2016-08-31T11:40:28.380861+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target status:0
+2016-08-31T11:40:28.380902+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:UpToDate size:16344 read:0 written:24708 al-writes:12 bm-writes:0 upper-pending:0 lower-pending:0
+2016-08-31T11:40:28.380902+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established received:24708 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:28.383543+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:28.766942+08:00 change resource name:resize.KNOWN-20160831-114025 role:Primary write-ordering:drain
+2016-08-31T11:40:28.836839+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:28.860104+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:28.860668+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:SyncSource peer-disk:Inconsistent received:24708 sent:0 out-of-sync:8192 pending:0 unacked:0
+2016-08-31T11:40:28.881276+08:00 change resource name:resize.KNOWN-20160831-114025 role:Secondary write-ordering:drain
+2016-08-31T11:40:29.046165+08:00 change resource name:resize.KNOWN-20160831-114025 role:Primary write-ordering:drain
+2016-08-31T11:40:29.048518+08:00 change resource name:resize.KNOWN-20160831-114025 role:Secondary
+2016-08-31T11:40:29.163433+08:00 change resource name:resize.KNOWN-20160831-114025 role:Primary
+2016-08-31T11:40:29.288458+08:00 change resource name:resize.KNOWN-20160831-114025 role:Secondary
+2016-08-31T11:40:29.298134+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established peer-disk:UpToDate received:24708 sent:24688 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:29.687168+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target
+2016-08-31T11:40:29.703786+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target status:0
+2016-08-31T11:40:29.704113+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:Inconsistent size:32728 read:152 written:49244 al-writes:38 bm-writes:0 upper-pending:0 lower-pending:4
+2016-08-31T11:40:29.704113+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:SyncTarget received:24708 sent:24688 out-of-sync:8192 pending:0 unacked:0
+2016-08-31T11:40:29.838893+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:29.842978+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:29.954016+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:30.069946+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target
+2016-08-31T11:40:30.076122+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target status:0
+2016-08-31T11:40:30.076143+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:UpToDate size:32728 read:152 written:82076 al-writes:40 bm-writes:0 upper-pending:0 lower-pending:0
+2016-08-31T11:40:30.076143+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established received:57540 sent:24688 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:30.076163+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:30.422840+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target
+2016-08-31T11:40:30.442518+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target status:0
+2016-08-31T11:40:30.442963+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:Inconsistent size:40920 read:152 written:82076 al-writes:56 bm-writes:0 upper-pending:0 lower-pending:4
+2016-08-31T11:40:30.442963+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:SyncTarget received:57540 sent:24688 out-of-sync:8192 pending:0 unacked:0
+2016-08-31T11:40:30.594460+08:00 change resource name:resize.KNOWN-20160831-114025 role:Primary
+2016-08-31T11:40:30.596600+08:00 change resource name:resize.KNOWN-20160831-114025 role:Secondary write-ordering:drain
+2016-08-31T11:40:30.707357+08:00 change resource name:resize.KNOWN-20160831-114025 role:Primary
+2016-08-31T11:40:30.826822+08:00 call helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target
+2016-08-31T11:40:30.834090+08:00 response helper name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target status:0
+2016-08-31T11:40:30.834111+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:UpToDate size:40920 read:152 written:123148 al-writes:58 bm-writes:0 upper-pending:0 lower-pending:0
+2016-08-31T11:40:30.834111+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established received:57692 sent:65608 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:30.834302+08:00 change resource name:resize.KNOWN-20160831-114025 role:Secondary
+2016-08-31T11:40:30.972601+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Disconnecting role:Unknown
+2016-08-31T11:40:30.972601+08:00 change peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown received:57692 sent:65608 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:30.976792+08:00 change path name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:40:30.976819+08:00 change connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone congested:no
+2016-08-31T11:40:30.979525+08:00 destroy peer-device name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0
+2016-08-31T11:40:30.979525+08:00 destroy connection name:resize.KNOWN-20160831-114025 peer-node-id:0 conn-name:drbd-sp2-autotest-1
+2016-08-31T11:40:30.980944+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:Detaching size:40920 read:152 written:123148 al-writes:58 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:40:30.980963+08:00 change device name:resize.KNOWN-20160831-114025 volume:0 minor:138 disk:Diskless size:40920 read:152 written:123148 al-writes:58 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:40:30.982283+08:00 destroy device name:resize.KNOWN-20160831-114025 volume:0 minor:138
+2016-08-31T11:40:30.992350+08:00 destroy resource name:resize.KNOWN-20160831-114025

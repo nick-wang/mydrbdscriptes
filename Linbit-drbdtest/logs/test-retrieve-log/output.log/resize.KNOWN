@@ -1,0 +1,50 @@
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+Logging to directory log/resize.KNOWN-20160831-114025
+drbd-sp2-autotest-1: drbdsetup new-resource resize.KNOWN-20160831-114025 0 
+drbd-sp2-autotest-1: drbdsetup new-minor resize.KNOWN-20160831-114025 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/resize.KNOWN-20160831-114025-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/resize.KNOWN-20160831-114025-disk0 /dev/scratch/resize.KNOWN-20160831-114025-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer resize.KNOWN-20160831-114025 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path resize.KNOWN-20160831-114025 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect resize.KNOWN-20160831-114025 1 
+drbd-sp2-autotest-2: drbdsetup new-resource resize.KNOWN-20160831-114025 1 
+drbd-sp2-autotest-2: drbdsetup new-minor resize.KNOWN-20160831-114025 138 0 
+drbd-sp2-autotest-2: drbdmeta 138 v09 /dev/scratch/resize.KNOWN-20160831-114025-disk0 internal apply-al 
+drbd-sp2-autotest-2: drbdsetup attach 138 /dev/scratch/resize.KNOWN-20160831-114025-disk0 /dev/scratch/resize.KNOWN-20160831-114025-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-2: drbdsetup new-peer resize.KNOWN-20160831-114025 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path resize.KNOWN-20160831-114025 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup connect resize.KNOWN-20160831-114025 0 
+
+drbd-sp2-autotest-1: drbdsetup primary resize.KNOWN-20160831-114025 --force 
+
+
+
+drbd-sp2-autotest-1:   Size of logical volume scratch/resize.KNOWN-20160831-114025-disk0 changed from 8.00 MiB (2 extents) to 16.00 MiB (4 extents).
+drbd-sp2-autotest-1:   Logical volume resize.KNOWN-20160831-114025-disk0 successfully resized
+drbd-sp2-autotest-2:   Size of logical volume scratch/resize.KNOWN-20160831-114025-disk0 changed from 8.00 MiB (2 extents) to 16.00 MiB (4 extents).
+drbd-sp2-autotest-2:   Logical volume resize.KNOWN-20160831-114025-disk0 successfully resized
+drbd-sp2-autotest-1: drbdsetup primary resize.KNOWN-20160831-114025 
+
+
+drbd-sp2-autotest-1:   Size of logical volume scratch/resize.KNOWN-20160831-114025-disk0 changed from 16.00 MiB (4 extents) to 24.00 MiB (6 extents).
+drbd-sp2-autotest-1:   Logical volume resize.KNOWN-20160831-114025-disk0 successfully resized
+drbd-sp2-autotest-2:   Size of logical volume scratch/resize.KNOWN-20160831-114025-disk0 changed from 16.00 MiB (4 extents) to 24.00 MiB (6 extents).
+drbd-sp2-autotest-2:   Logical volume resize.KNOWN-20160831-114025-disk0 successfully resized
+drbd-sp2-autotest-2: drbdsetup primary resize.KNOWN-20160831-114025 
+
+
+drbd-sp2-autotest-1:   Size of logical volume scratch/resize.KNOWN-20160831-114025-disk0 changed from 24.00 MiB (6 extents) to 32.00 MiB (8 extents).
+drbd-sp2-autotest-1:   Logical volume resize.KNOWN-20160831-114025-disk0 successfully resized
+drbd-sp2-autotest-2:   Size of logical volume scratch/resize.KNOWN-20160831-114025-disk0 changed from 24.00 MiB (6 extents) to 32.00 MiB (8 extents).
+drbd-sp2-autotest-2:   Logical volume resize.KNOWN-20160831-114025-disk0 successfully resized
+drbd-sp2-autotest-1:   Size of logical volume scratch/resize.KNOWN-20160831-114025-disk0 changed from 32.00 MiB (8 extents) to 40.00 MiB (10 extents).
+drbd-sp2-autotest-1:   Logical volume resize.KNOWN-20160831-114025-disk0 successfully resized
+drbd-sp2-autotest-2:   Size of logical volume scratch/resize.KNOWN-20160831-114025-disk0 changed from 32.00 MiB (8 extents) to 40.00 MiB (10 extents).
+drbd-sp2-autotest-2:   Logical volume resize.KNOWN-20160831-114025-disk0 successfully resized
+drbd-sp2-autotest-1:   drbd-sp2-autotest-1: Logical volume scratch/resize.KNOWN-20160831-114025-disk0 is used by another device.drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: cleanup failed with status 1drbd-sp2-autotest-2:   Logical volume scratch/resize.KNOWN-20160831-114025-disk0 is used by another device.
+drbd-sp2-autotest-2: cleanup failed with status 1

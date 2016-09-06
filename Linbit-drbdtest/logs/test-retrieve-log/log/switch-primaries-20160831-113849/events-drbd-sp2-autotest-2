@@ -1,0 +1,348 @@
+2016-08-31T11:38:49.923544+08:00 exists -
+2016-08-31T11:38:50.280287+08:00 create resource name:switch-primaries-20160831-113849 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:38:50.282279+08:00 create device name:switch-primaries-20160831-113849 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:38:50.407140+08:00 change device name:switch-primaries-20160831-113849 volume:0 minor:138 disk:Attaching size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:38:50.414810+08:00 change device name:switch-primaries-20160831-113849 volume:0 minor:138 disk:Inconsistent size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:38:50.428600+08:00 create connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:38:50.428600+08:00 create peer-device name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:38:50.434165+08:00 create path name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:38:50.436788+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Unconnected congested:no
+2016-08-31T11:38:50.442621+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting
+2016-08-31T11:38:50.961406+08:00 change path name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:yes
+2016-08-31T11:38:51.078524+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connected role:Secondary
+2016-08-31T11:38:51.078586+08:00 change peer-device name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established peer-disk:Inconsistent received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:38:51.105497+08:00 change device name:switch-primaries-20160831-113849 volume:0 minor:138 disk:UpToDate size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:3 blocked:no
+2016-08-31T11:38:51.105497+08:00 change peer-device name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 peer-disk:UpToDate received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:38:51.131924+08:00 change resource name:switch-primaries-20160831-113849 role:Primary write-ordering:drain
+2016-08-31T11:38:51.529445+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:38:51.565079+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:51.895177+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:38:51.925520+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:38:52.317110+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:38:52.361172+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:52.705912+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:38:52.750252+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:53.097690+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:53.135680+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:53.471866+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:53.513562+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:53.856998+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:53.884936+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:38:54.270850+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:38:54.308829+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:38:54.702147+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:38:54.742145+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:38:55.149347+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:38:55.176962+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:55.501554+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:38:55.541637+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:55.871015+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:55.905233+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:38:56.296528+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:38:56.337025+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:56.668941+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:38:56.702479+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:57.010593+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:57.041299+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:57.347727+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:57.377683+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:38:57.767126+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:38:57.811497+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:58.165515+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:38:58.198583+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:58.526468+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:58.553454+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:38:58.907473+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:38:58.945167+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:59.291884+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:38:59.330939+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:59.668283+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:59.697734+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:00.083203+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:00.127951+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:00.486958+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:00.523323+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:00.970385+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:00.998302+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:01.312516+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:01.352393+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:01.693846+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:01.729815+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:02.135824+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:02.172562+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:02.558417+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:02.601496+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:02.955606+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:02.996394+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:03.331845+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:03.363886+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:03.678838+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:03.711757+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:04.079661+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:04.115080+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:04.512152+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:04.557053+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:04.910074+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:04.951006+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:05.302996+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:05.339586+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:05.722936+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:05.763683+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:06.089865+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:06.125303+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:06.518424+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:06.553069+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:06.922369+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:06.951956+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:06.968813+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:06.987002+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.001032+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.021610+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.034024+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:07.053433+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.065827+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.078633+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.090860+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:07.105456+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.117019+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.130448+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.142224+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.155493+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.166023+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.178458+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.190132+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.202205+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.212306+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.226585+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.236284+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:07.251868+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.261085+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.270976+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.281261+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:07.293217+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.303563+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.315087+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.325448+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.340496+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.349912+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:07.364681+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.374311+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.384328+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.394592+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:07.406696+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.416448+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.430970+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.440175+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:07.455819+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.464961+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.475082+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.485340+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:07.498318+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.508456+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.520179+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.530720+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.547025+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.556044+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:07.570658+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.579912+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.594121+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.603412+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.617474+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.626232+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.635403+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.645129+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:07.656397+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.665777+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.680255+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.689022+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:07.702907+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.711360+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.725305+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.734467+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.747926+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.755972+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.765718+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.775033+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:07.786592+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.795781+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.807350+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.816831+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:07.830486+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.839096+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:07.852405+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.860534+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:07.870193+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:07.879933+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:07.998440+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:07.999884+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:08.110311+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:08.124088+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:08.319025+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:08.321840+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:08.441588+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:08.474377+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:08.743156+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:08.744970+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:08.855179+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:08.877099+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:09.132538+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:09.134462+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:09.243052+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:09.263498+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:09.549560+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:09.551717+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:09.663596+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:09.681245+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:09.888859+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:09.890737+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:10.005353+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:10.036638+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:10.289029+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:10.290622+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:10.398050+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:10.422880+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:10.679781+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:10.681488+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:10.788138+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:10.812141+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:11.064366+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:11.065801+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:11.172695+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:11.192387+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:11.463567+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:11.466256+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:11.580771+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:11.603707+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:11.815896+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:11.818334+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:11.935289+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:11.958589+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:12.194406+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:12.196071+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:12.308394+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:12.331028+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:12.593365+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:12.594835+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:12.703962+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:12.728276+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:12.960576+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:12.962014+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:13.069800+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:13.091370+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:13.364800+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:13.366605+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:13.478829+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:13.490036+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:13.778845+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:13.780894+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:13.890410+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:13.920046+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:14.210388+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:14.213514+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:14.327473+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:14.358787+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:14.588033+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:14.591408+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:14.703684+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:14.724993+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:14.938995+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:14.941856+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:15.065915+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:15.075021+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:15.380971+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:15.383812+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:15.496887+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:15.520082+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:15.827963+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:15.831909+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:15.943317+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:15.969569+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:16.191181+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:16.193322+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:16.313271+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:16.334917+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:16.572051+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:16.574674+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:16.690606+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:16.712889+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:16.934898+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:16.937872+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:17.052354+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:17.076417+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:17.255202+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:17.257032+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:17.365032+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:17.384604+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:17.671310+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:17.673713+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:17.783830+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:17.812577+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:17.998031+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:17.999553+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:18.109106+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:18.129485+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:18.386133+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:18.386186+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:18.493183+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:18.508817+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:18.715293+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:18.717572+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:18.829681+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:18.859448+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:19.146691+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:19.150736+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:19.264156+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:19.289362+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:19.515126+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:19.517908+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:19.628273+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:19.646672+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:19.872951+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:19.874486+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:19.984822+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:20.006298+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:20.367356+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:20.370813+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary congested:no
+2016-08-31T11:39:20.479209+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:20.496781+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:20.689202+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:20.689257+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:20.792551+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:20.807911+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:21.027775+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:21.031617+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:21.138094+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:39:21.160769+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:39:21.357114+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:21.358636+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary write-ordering:drain
+2016-08-31T11:39:21.470685+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:21.479814+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:21.746290+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:21.748200+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:21.862406+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:21.873070+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:22.128884+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:22.130371+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:22.238859+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:22.260791+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:22.533979+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:22.535679+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:22.649069+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:22.671772+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:22.940933+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:22.942675+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:23.055663+08:00 change resource name:switch-primaries-20160831-113849 role:Primary
+2016-08-31T11:39:23.080318+08:00 change resource name:switch-primaries-20160831-113849 role:Secondary
+2016-08-31T11:39:23.215606+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:TearDown role:Unknown
+2016-08-31T11:39:23.215606+08:00 change peer-device name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown received:166296 sent:158184 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:39:23.215968+08:00 change path name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:39:23.222736+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Unconnected congested:no
+2016-08-31T11:39:23.222762+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting
+2016-08-31T11:39:23.306954+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Disconnecting
+2016-08-31T11:39:23.315122+08:00 change connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone
+2016-08-31T11:39:23.320185+08:00 destroy peer-device name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0
+2016-08-31T11:39:23.320185+08:00 destroy connection name:switch-primaries-20160831-113849 peer-node-id:0 conn-name:drbd-sp2-autotest-1
+2016-08-31T11:39:23.322606+08:00 change device name:switch-primaries-20160831-113849 volume:0 minor:138 disk:Detaching size:4056 read:0 written:324480 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:39:23.322641+08:00 change device name:switch-primaries-20160831-113849 volume:0 minor:138 disk:Diskless size:4056 read:0 written:324480 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:39:23.324995+08:00 destroy device name:switch-primaries-20160831-113849 volume:0 minor:138
+2016-08-31T11:39:23.332536+08:00 destroy resource name:switch-primaries-20160831-113849

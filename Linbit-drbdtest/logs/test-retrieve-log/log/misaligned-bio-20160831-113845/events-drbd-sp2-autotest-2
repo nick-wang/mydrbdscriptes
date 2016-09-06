@@ -1,0 +1,31 @@
+2016-08-31T11:38:46.257893+08:00 exists -
+2016-08-31T11:38:46.694938+08:00 create resource name:misaligned-bio-20160831-113845 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:38:46.697085+08:00 create device name:misaligned-bio-20160831-113845 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:38:46.815355+08:00 change device name:misaligned-bio-20160831-113845 volume:0 minor:138 disk:Attaching size:12248 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:38:46.824079+08:00 change device name:misaligned-bio-20160831-113845 volume:0 minor:138 disk:Inconsistent size:12248 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:38:46.845842+08:00 create connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:38:46.845842+08:00 create peer-device name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:38:46.847869+08:00 create path name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:38:46.851529+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Unconnected congested:no
+2016-08-31T11:38:46.856756+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting
+2016-08-31T11:38:47.356412+08:00 change path name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:yes
+2016-08-31T11:38:47.485531+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connected role:Secondary
+2016-08-31T11:38:47.485607+08:00 change peer-device name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established peer-disk:Inconsistent received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:38:47.509865+08:00 change device name:misaligned-bio-20160831-113845 volume:0 minor:138 disk:UpToDate size:12248 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:3 blocked:no
+2016-08-31T11:38:47.509865+08:00 change peer-device name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 peer-disk:UpToDate received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:38:47.594021+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:47.603865+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:47.659059+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:38:47.667037+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:38:47.707794+08:00 change resource name:misaligned-bio-20160831-113845 role:Primary write-ordering:drain
+2016-08-31T11:38:47.716491+08:00 change resource name:misaligned-bio-20160831-113845 role:Secondary write-ordering:drain
+2016-08-31T11:38:47.737083+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Disconnecting role:Unknown
+2016-08-31T11:38:47.737083+08:00 change peer-device name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown received:45 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:38:47.741260+08:00 change path name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:38:47.741281+08:00 change connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone congested:no
+2016-08-31T11:38:47.743951+08:00 destroy peer-device name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0
+2016-08-31T11:38:47.743951+08:00 destroy connection name:misaligned-bio-20160831-113845 peer-node-id:0 conn-name:drbd-sp2-autotest-1
+2016-08-31T11:38:47.745345+08:00 change device name:misaligned-bio-20160831-113845 volume:0 minor:138 disk:Detaching size:12248 read:45 written:45 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:38:47.745369+08:00 change device name:misaligned-bio-20160831-113845 volume:0 minor:138 disk:Diskless size:12248 read:45 written:45 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:38:47.746696+08:00 destroy device name:misaligned-bio-20160831-113845 volume:0 minor:138
+2016-08-31T11:38:47.756353+08:00 destroy resource name:misaligned-bio-20160831-113845

@@ -1,0 +1,77 @@
+- connect:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 0
+    output: null
+    result: PASSED
+- initial-resync:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 0
+    output: null
+    result: PASSED
+- latency:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 2
+    output: null
+    result: PASSED
+- misaligned-bio:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 2
+    output: null
+    result: PASSED
+- switch-primaries:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 2
+    output: null
+    result: PASSED
+- ref-count:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 2
+    output: null
+    result: PASSED
+- add-connect-delete:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 2
+    output: null
+    result: PASSED
+- add-path-multiple-times:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 2
+    output: null
+    result: PASSED
+- ahead-behind.KNOWN:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 2
+    output: null
+    result: PASSED
+- resize.KNOWN:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 2
+    output: null
+    result: PASSED
+- resync-never-connected.KNOWN:
+    error: false
+    isdirty: false
+    message: null
+    nodes: 0
+    output: null
+    result: PASSED

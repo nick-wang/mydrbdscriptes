@@ -1,0 +1,48 @@
+Starting case connect ============
+Logging to directory log/connect-20160811-112951
+drbd-test-sp2-manually-1: drbdsetup new-resource connect-20160811-112951 0 
+drbd-test-sp2-manually-1: drbdsetup new-peer connect-20160811-112951 1 --_name=drbd-test-sp2-manually-2 
+drbd-test-sp2-manually-1: drbdsetup new-path connect-20160811-112951 1 ipv4:192.168.122.81:7789 ipv4:192.168.122.110:7789 
+drbd-test-sp2-manually-1: drbdsetup new-peer connect-20160811-112951 2 --_name=drbd-test-sp2-manually-3 
+drbd-test-sp2-manually-1: drbdsetup new-path connect-20160811-112951 2 ipv4:192.168.122.81:7789 ipv4:192.168.122.4:7789 
+drbd-test-sp2-manually-1: drbdsetup connect connect-20160811-112951 1 
+drbd-test-sp2-manually-1: drbdsetup connect connect-20160811-112951 2 
+drbd-test-sp2-manually-2: drbdsetup new-resource connect-20160811-112951 1 
+drbd-test-sp2-manually-2: drbdsetup new-peer connect-20160811-112951 0 --_name=drbd-test-sp2-manually-1 
+drbd-test-sp2-manually-2: drbdsetup new-path connect-20160811-112951 0 ipv4:192.168.122.110:7789 ipv4:192.168.122.81:7789 
+drbd-test-sp2-manually-2: drbdsetup new-peer connect-20160811-112951 2 --_name=drbd-test-sp2-manually-3 
+drbd-test-sp2-manually-2: drbdsetup new-path connect-20160811-112951 2 ipv4:192.168.122.110:7789 ipv4:192.168.122.4:7789 
+drbd-test-sp2-manually-2: drbdsetup connect connect-20160811-112951 0 
+drbd-test-sp2-manually-2: drbdsetup connect connect-20160811-112951 2 
+drbd-test-sp2-manually-3: drbdsetup new-resource connect-20160811-112951 2 
+drbd-test-sp2-manually-3: drbdsetup new-peer connect-20160811-112951 0 --_name=drbd-test-sp2-manually-1 
+drbd-test-sp2-manually-3: drbdsetup new-path connect-20160811-112951 0 ipv4:192.168.122.4:7789 ipv4:192.168.122.81:7789 
+drbd-test-sp2-manually-3: drbdsetup new-peer connect-20160811-112951 1 --_name=drbd-test-sp2-manually-2 
+drbd-test-sp2-manually-3: drbdsetup new-path connect-20160811-112951 1 ipv4:192.168.122.4:7789 ipv4:192.168.122.110:7789 
+drbd-test-sp2-manually-3: drbdsetup connect connect-20160811-112951 0 
+drbd-test-sp2-manually-3: drbdsetup connect connect-20160811-112951 1 
+----------------------------------------
+Exception happened during processing of request from ('192.168.122.212', 37320)
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib64/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib64/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/drbdtest/drbd-test.git/tests/python/syslog.py", line 68, in __init__
+    SyslogHandler.__init__(self, *args, **kwargs)
+  File "/drbdtest/drbd-test.git/tests/python/syslog.py", line 41, in __init__
+    BaseRequestHandler.__init__(self, *args, **kwargs)
+  File "/usr/lib64/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/drbdtest/drbd-test.git/tests/python/syslog.py", line 74, in handle
+    SyslogHandler.handle(self, message)
+  File "/drbdtest/drbd-test.git/tests/python/syslog.py", line 45, in handle
+    file = self.logfile()
+  File "/drbdtest/drbd-test.git/tests/python/syslog.py", line 61, in logfile
+    return logfile
+UnboundLocalError: local variable 'logfile' referenced before assignment
+----------------------------------------
+
+

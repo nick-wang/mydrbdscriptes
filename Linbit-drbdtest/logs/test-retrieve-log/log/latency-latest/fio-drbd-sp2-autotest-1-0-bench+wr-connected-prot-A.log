@@ -1,0 +1,37 @@
+## command: ['fio', '--rwmixread=0', '--runtime=15', '--section', 'bench', '-']
+\Ndrbd-sp2-autotest-1: bench: (g=0): rw=randrw, bs=4K-4K/4K-4K/4K-4K, ioengine=libaio, iodepth=16
+drbd-sp2-autotest-1: fio-2.13
+drbd-sp2-autotest-1: Starting 1 process
+drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: bench: (groupid=0, jobs=1): err= 0: pid=7073: Wed Aug 31 11:36:57 2016
+drbd-sp2-autotest-1:   write: io=2155.8MB, bw=147175KB/s, iops=36793, runt= 14999msec
+drbd-sp2-autotest-1:     slat (usec): min=2, max=1286, avg=18.67, stdev=30.03
+drbd-sp2-autotest-1:     clat (usec): min=1, max=2174, avg=396.50, stdev=196.24
+drbd-sp2-autotest-1:      lat (usec): min=37, max=2181, avg=415.89, stdev=202.74
+drbd-sp2-autotest-1:     clat percentiles (usec):
+drbd-sp2-autotest-1:      |  1.00th=[   90],  5.00th=[  153], 10.00th=[  179], 20.00th=[  221],
+drbd-sp2-autotest-1:      | 30.00th=[  258], 40.00th=[  298], 50.00th=[  350], 60.00th=[  418],
+drbd-sp2-autotest-1:      | 70.00th=[  506], 80.00th=[  588], 90.00th=[  676], 95.00th=[  740],
+drbd-sp2-autotest-1:      | 99.00th=[  868], 99.50th=[  940], 99.90th=[ 1352], 99.95th=[ 1576],
+drbd-sp2-autotest-1:      | 99.99th=[ 1896]
+drbd-sp2-autotest-1:     bw (KB  /s): min=99984, max=191072, per=100.00%, avg=147966.62, stdev=28523.44
+drbd-sp2-autotest-1:     lat (usec) : 2=0.01%, 4=0.03%, 10=0.01%, 20=0.01%, 50=0.02%
+drbd-sp2-autotest-1:     lat (usec) : 100=1.48%, 250=25.79%, 500=42.10%, 750=26.36%, 1000=3.86%
+drbd-sp2-autotest-1:     lat (msec) : 2=0.34%, 4=0.01%
+drbd-sp2-autotest-1:   cpu          : usr=9.50%, sys=31.00%, ctx=157878, majf=0, minf=11
+drbd-sp2-autotest-1:   IO depths    : 1=0.4%, 2=0.8%, 4=1.6%, 8=3.1%, 16=94.1%, 32=0.0%, >=64=0.0%
+drbd-sp2-autotest-1:      submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+drbd-sp2-autotest-1:      complete  : 0=0.0%, 4=99.6%, 8=0.0%, 16=0.4%, 32=0.0%, 64=0.0%, >=64=0.0%
+drbd-sp2-autotest-1:      issued    : total=r=0/w=551870/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+drbd-sp2-autotest-1:      latency   : target=0, window=0, percentile=100.00%, depth=16
+drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: Run status group 0 (all jobs):
+drbd-sp2-autotest-1:   WRITE: io=2155.8MB, aggrb=147175KB/s, minb=147175KB/s, maxb=147175KB/s, mint=14999msec, maxt=14999msec
+drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: Disk stats (read/write):
+drbd-sp2-autotest-1:     drbd138: ios=0/549276, merge=0/0, ticks=0/51428, in_queue=51176, util=80.93%, aggrios=0/551870, aggrmerge=0/0, aggrticks=0/44488, aggrin_queue=44536, aggrutil=76.20%
+drbd-sp2-autotest-1:     dm-0: ios=0/551870, merge=0/0, ticks=0/44488, in_queue=44536, util=76.20%, aggrios=0/551870, aggrmerge=0/0, aggrticks=0/44024, aggrin_queue=43908, aggrutil=74.87%
+drbd-sp2-autotest-1:   vdb: ios=0/551870, merge=0/0, ticks=0/44024, in_queue=43908, util=74.87%

@@ -1,0 +1,46 @@
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+Logging to directory log/add-path-multiple-times-20160831-113950
+drbd-sp2-autotest-1: drbdsetup new-resource add-path-multiple-times-20160831-113950 0 
+drbd-sp2-autotest-1: drbdsetup new-minor add-path-multiple-times-20160831-113950 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/add-path-multiple-times-20160831-113950-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/add-path-multiple-times-20160831-113950-disk0 /dev/scratch/add-path-multiple-times-20160831-113950-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer add-path-multiple-times-20160831-113950 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path add-path-multiple-times-20160831-113950 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect add-path-multiple-times-20160831-113950 1 
+
+drbd-sp2-autotest-1: drbdsetup new-path add-path-multiple-times-20160831-113950 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: add-path-multiple-times-20160831-113950: Failure: (173) Combination of local address(port) and remote address(port) already in use
+drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: Command 'drbdsetup new-path add-path-multiple-times-20160831-113950 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789' terminated with exit code 10
+drbd-sp2-autotest-1: drbdsetup new-peer add-path-multiple-times-20160831-113950 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: add-path-multiple-times-20160831-113950: Failure: (162) Invalid configuration request
+drbd-sp2-autotest-1: additional info from kernel:
+drbd-sp2-autotest-1: peer connection already exists
+drbd-sp2-autotest-1: Command 'drbdsetup new-peer add-path-multiple-times-20160831-113950 1 --_name=drbd-sp2-autotest-2' terminated with exit code 10
+drbd-sp2-autotest-1: drbdsetup new-path add-path-multiple-times-20160831-113950 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: add-path-multiple-times-20160831-113950: Failure: (173) Combination of local address(port) and remote address(port) already in use
+drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: Command 'drbdsetup new-path add-path-multiple-times-20160831-113950 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789' terminated with exit code 10
+drbd-sp2-autotest-1: drbdsetup new-peer add-path-multiple-times-20160831-113950 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: add-path-multiple-times-20160831-113950: Failure: (162) Invalid configuration request
+drbd-sp2-autotest-1: additional info from kernel:
+drbd-sp2-autotest-1: peer connection already exists
+drbd-sp2-autotest-1: Command 'drbdsetup new-peer add-path-multiple-times-20160831-113950 1 --_name=drbd-sp2-autotest-2' terminated with exit code 10
+drbd-sp2-autotest-1: drbdsetup new-path add-path-multiple-times-20160831-113950 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: add-path-multiple-times-20160831-113950: Failure: (173) Combination of local address(port) and remote address(port) already in use
+drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: Command 'drbdsetup new-path add-path-multiple-times-20160831-113950 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789' terminated with exit code 10
+drbd-sp2-autotest-1: drbdsetup new-peer add-path-multiple-times-20160831-113950 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: add-path-multiple-times-20160831-113950: Failure: (162) Invalid configuration request
+drbd-sp2-autotest-1: additional info from kernel:
+drbd-sp2-autotest-1: peer connection already exists
+drbd-sp2-autotest-1: Command 'drbdsetup new-peer add-path-multiple-times-20160831-113950 1 --_name=drbd-sp2-autotest-2' terminated with exit code 10
+drbd-sp2-autotest-1:   drbd-sp2-autotest-1: Logical volume scratch/add-path-multiple-times-20160831-113950-disk0 is used by another device.drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: cleanup failed with status 1drbd-sp2-autotest-2:   Logical volume "add-path-multiple-times-20160831-113950-disk0" successfully removed

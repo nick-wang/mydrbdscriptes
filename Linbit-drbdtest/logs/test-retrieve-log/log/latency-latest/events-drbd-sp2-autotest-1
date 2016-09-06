@@ -1,0 +1,35 @@
+2016-08-31T11:35:33.410844+08:00 exists -
+2016-08-31T11:35:34.013820+08:00 create resource name:latency-20160831-113532 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:35:34.014890+08:00 create device name:latency-20160831-113532 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:35:34.084203+08:00 change device name:latency-20160831-113532 volume:0 minor:138 disk:Attaching size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:35:34.089251+08:00 change device name:latency-20160831-113532 volume:0 minor:138 disk:Inconsistent size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:35:34.100284+08:00 create connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:35:34.100284+08:00 create peer-device name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:1704 pending:0 unacked:0
+2016-08-31T11:35:34.105482+08:00 create path name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:35:34.107522+08:00 change connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected congested:no
+2016-08-31T11:35:34.112007+08:00 change connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:35:37.127367+08:00 change path name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:yes
+2016-08-31T11:35:37.167684+08:00 change connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connected role:Secondary
+2016-08-31T11:35:37.182625+08:00 change peer-device name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Established peer-disk:Inconsistent received:0 sent:0 out-of-sync:1704 pending:0 unacked:0
+2016-08-31T11:35:37.198512+08:00 change resource name:latency-20160831-113532 role:Primary write-ordering:drain
+2016-08-31T11:35:37.198512+08:00 change device name:latency-20160831-113532 volume:0 minor:138 disk:UpToDate size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 blocked:no
+2016-08-31T11:35:37.231918+08:00 change peer-device name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:WFBitMapS received:0 sent:0 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:35:37.237342+08:00 call helper name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:35:37.249258+08:00 response helper name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:35:37.250369+08:00 change peer-device name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:SyncSource received:0 sent:0 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:35:40.187227+08:00 change peer-device name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Established peer-disk:UpToDate received:0 sent:4056 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:37:58.637532+08:00 change resource name:latency-20160831-113532 role:Secondary write-ordering:drain
+2016-08-31T11:37:58.668685+08:00 change connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 role:Primary
+2016-08-31T11:37:58.681318+08:00 change connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 role:Secondary congested:no
+2016-08-31T11:37:58.707072+08:00 change connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting role:Unknown
+2016-08-31T11:37:58.707072+08:00 change peer-device name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown received:0 sent:2627220 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:37:58.712619+08:00 change path name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:37:58.712657+08:00 change connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:37:58.727842+08:00 change resource name:latency-20160831-113532 role:Primary write-ordering:drain
+2016-08-31T11:38:44.707267+08:00 change resource name:latency-20160831-113532 role:Secondary write-ordering:drain
+2016-08-31T11:38:44.713257+08:00 destroy peer-device name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0
+2016-08-31T11:38:44.713257+08:00 destroy connection name:latency-20160831-113532 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:38:44.715711+08:00 change device name:latency-20160831-113532 volume:0 minor:138 disk:Detaching size:4056 read:35508952 written:17052480 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:38:44.715740+08:00 change device name:latency-20160831-113532 volume:0 minor:138 disk:Diskless size:4056 read:35508952 written:17052480 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:38:44.718679+08:00 destroy device name:latency-20160831-113532 volume:0 minor:138
+2016-08-31T11:38:44.725284+08:00 destroy resource name:latency-20160831-113532

@@ -1,0 +1,26 @@
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+Logging to directory log/misaligned-bio-20160831-113845
+drbd-sp2-autotest-1: drbdsetup new-resource misaligned-bio-20160831-113845 0 
+drbd-sp2-autotest-1: drbdsetup new-minor misaligned-bio-20160831-113845 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/misaligned-bio-20160831-113845-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/misaligned-bio-20160831-113845-disk0 /dev/scratch/misaligned-bio-20160831-113845-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer misaligned-bio-20160831-113845 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path misaligned-bio-20160831-113845 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect misaligned-bio-20160831-113845 1 
+drbd-sp2-autotest-2: drbdsetup new-resource misaligned-bio-20160831-113845 1 
+drbd-sp2-autotest-2: drbdsetup new-minor misaligned-bio-20160831-113845 138 0 
+drbd-sp2-autotest-2: drbdmeta 138 v09 /dev/scratch/misaligned-bio-20160831-113845-disk0 internal apply-al 
+drbd-sp2-autotest-2: drbdsetup attach 138 /dev/scratch/misaligned-bio-20160831-113845-disk0 /dev/scratch/misaligned-bio-20160831-113845-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-2: drbdsetup new-peer misaligned-bio-20160831-113845 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path misaligned-bio-20160831-113845 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup connect misaligned-bio-20160831-113845 0 
+
+drbd-sp2-autotest-1: drbdsetup peer-device-options misaligned-bio-20160831-113845 1 0 
+drbd-sp2-autotest-2: drbdsetup peer-device-options misaligned-bio-20160831-113845 0 0 
+
+
+drbd-sp2-autotest-1:   Logical volume "misaligned-bio-20160831-113845-disk0" successfully removed
+drbd-sp2-autotest-2:   Logical volume "misaligned-bio-20160831-113845-disk0" successfully removed

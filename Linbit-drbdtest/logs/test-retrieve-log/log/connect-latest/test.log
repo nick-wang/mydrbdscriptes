@@ -1,0 +1,67 @@
+drbd-sp2-autotest-1: test -d /usr/share/drbd-test
+drbd-sp2-autotest-1: timeout 30
+drbd-sp2-autotest-1: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-1: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=connect-20160831-113500 EXXE_IDENT=exxe/connect-20160831-113500 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/connect-20160831-113500/drbd.conf'
+drbd-sp2-autotest-1: hostname -f
+drbd-sp2-autotest-1: drbd-version
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-2: test -d /usr/share/drbd-test
+drbd-sp2-autotest-2: timeout 30
+drbd-sp2-autotest-2: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-2: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=connect-20160831-113500 EXXE_IDENT=exxe/connect-20160831-113500 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/connect-20160831-113500/drbd.conf'
+drbd-sp2-autotest-2: hostname -f
+drbd-sp2-autotest-2: drbd-version
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-3: test -d /usr/share/drbd-test
+drbd-sp2-autotest-3: timeout 30
+drbd-sp2-autotest-3: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-3: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=connect-20160831-113500 EXXE_IDENT=exxe/connect-20160831-113500 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/connect-20160831-113500/drbd.conf'
+drbd-sp2-autotest-3: hostname -f
+drbd-sp2-autotest-3: drbd-version
+drbd-sp2-autotest-3: install-config
+drbd-sp2-autotest-3: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-3: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: rsyslogd drbd-sp2-autotest-1 5140
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: disable-faults
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: register-cleanup -t bash -c '! [ -e /proc/drbd ] || drbdsetup down $DRBD_TEST_JOB'
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: drbdadm up all -v
+drbd-sp2-autotest-1: drbdsetup new-resource connect-20160831-113500 0 
+drbd-sp2-autotest-1: drbdsetup new-peer connect-20160831-113500 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path connect-20160831-113500 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup new-peer connect-20160831-113500 2 --_name=drbd-sp2-autotest-3 
+drbd-sp2-autotest-1: drbdsetup new-path connect-20160831-113500 2 ipv4:192.168.122.23:7789 ipv4:192.168.122.167:7789 
+drbd-sp2-autotest-1: drbdsetup connect connect-20160831-113500 1 
+drbd-sp2-autotest-1: drbdsetup connect connect-20160831-113500 2 
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-2: drbdadm up all -v
+drbd-sp2-autotest-2: drbdsetup new-resource connect-20160831-113500 1 
+drbd-sp2-autotest-2: drbdsetup new-peer connect-20160831-113500 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path connect-20160831-113500 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup new-peer connect-20160831-113500 2 --_name=drbd-sp2-autotest-3 
+drbd-sp2-autotest-2: drbdsetup new-path connect-20160831-113500 2 ipv4:192.168.122.27:7789 ipv4:192.168.122.167:7789 
+drbd-sp2-autotest-2: drbdsetup connect connect-20160831-113500 0 
+drbd-sp2-autotest-2: drbdsetup connect connect-20160831-113500 2 
+drbd-sp2-autotest-3: install-config
+drbd-sp2-autotest-3: drbdadm up all -v
+drbd-sp2-autotest-3: drbdsetup new-resource connect-20160831-113500 2 
+drbd-sp2-autotest-3: drbdsetup new-peer connect-20160831-113500 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-3: drbdsetup new-path connect-20160831-113500 0 ipv4:192.168.122.167:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-3: drbdsetup new-peer connect-20160831-113500 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-3: drbdsetup new-path connect-20160831-113500 1 ipv4:192.168.122.167:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-3: drbdsetup connect connect-20160831-113500 0 
+drbd-sp2-autotest-3: drbdsetup connect connect-20160831-113500 1 
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2 drbd-sp2-autotest-1:drbd-sp2-autotest-3 drbd-sp2-autotest-2:drbd-sp2-autotest-1 drbd-sp2-autotest-2:drbd-sp2-autotest-3 drbd-sp2-autotest-3:drbd-sp2-autotest-1 drbd-sp2-autotest-3:drbd-sp2-autotest-2 -y connection .* role:Secondary
+
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: drbdadm down all
+Waiting for event drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3 -y destroy resource
+
+drbd-sp2-autotest-1: rmmod drbd_transport_tcp
+drbd-sp2-autotest-2: rmmod drbd_transport_tcp
+drbd-sp2-autotest-3: rmmod drbd_transport_tcp
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: rmmod drbd
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: cleanup

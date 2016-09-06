@@ -1,0 +1,61 @@
+2016-08-31T11:35:15.112314+08:00 exists -
+2016-08-31T11:35:16.823965+08:00 create resource name:initial-resync-20160831-113513 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:35:16.826923+08:00 create device name:initial-resync-20160831-113513 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:35:16.947249+08:00 change device name:initial-resync-20160831-113513 volume:0 minor:138 disk:Attaching size:12248 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:35:16.955149+08:00 change device name:initial-resync-20160831-113513 volume:0 minor:138 disk:Inconsistent size:12248 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:35:16.970933+08:00 create connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:35:16.970933+08:00 create peer-device name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:35:16.977674+08:00 create path name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:35:16.981271+08:00 create connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:35:16.981271+08:00 create peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:35:16.982714+08:00 create path name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:35:16.985521+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Unconnected congested:no
+2016-08-31T11:35:16.989772+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting
+2016-08-31T11:35:16.994361+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected
+2016-08-31T11:35:16.997078+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:35:17.493474+08:00 change path name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.23:7789 established:yes
+2016-08-31T11:35:17.523346+08:00 change path name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.27:7789 established:yes
+2016-08-31T11:35:17.636064+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connected role:Secondary
+2016-08-31T11:35:17.636180+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Established peer-disk:Inconsistent received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:35:17.701145+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connected role:Secondary
+2016-08-31T11:35:17.727033+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:WFBitMapT peer-disk:UpToDate received:0 sent:0 out-of-sync:12248 pending:0 unacked:0
+2016-08-31T11:35:17.727091+08:00 call helper name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target
+2016-08-31T11:35:17.745302+08:00 response helper name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target status:0
+2016-08-31T11:35:17.745918+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:SyncTarget received:0 sent:0 out-of-sync:12248 pending:0 unacked:0
+2016-08-31T11:35:17.745918+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 resync-suspended:dependency received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:35:23.076988+08:00 call helper name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target
+2016-08-31T11:35:23.085062+08:00 response helper name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target status:0
+2016-08-31T11:35:23.085107+08:00 change device name:initial-resync-20160831-113513 volume:0 minor:138 disk:UpToDate size:12248 read:0 written:12248 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 blocked:no
+2016-08-31T11:35:23.085107+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established received:12248 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:35:23.085107+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 resync-suspended:no received:0 sent:0 out-of-sync:12248 pending:0 unacked:0
+2016-08-31T11:35:23.127101+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:WFBitMapS received:0 sent:0 out-of-sync:12248 pending:0 unacked:0
+2016-08-31T11:35:23.135114+08:00 call helper name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:35:23.146139+08:00 response helper name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:35:23.146514+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:SyncSource received:0 sent:0 out-of-sync:12248 pending:0 unacked:0
+2016-08-31T11:35:30.433797+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Established peer-disk:UpToDate received:0 sent:12248 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:35:30.467640+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 role:Primary
+2016-08-31T11:35:30.804025+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 role:Secondary
+2016-08-31T11:35:30.829673+08:00 change resource name:initial-resync-20160831-113513 role:Primary write-ordering:drain
+2016-08-31T11:35:31.162695+08:00 change resource name:initial-resync-20160831-113513 role:Secondary write-ordering:drain
+2016-08-31T11:35:31.239538+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:TearDown role:Unknown
+2016-08-31T11:35:31.239538+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown received:0 sent:12248 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:35:31.239911+08:00 change path name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:35:31.245743+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected congested:no
+2016-08-31T11:35:31.281557+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:TearDown role:Unknown
+2016-08-31T11:35:31.281557+08:00 change peer-device name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown received:12248 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:35:31.282011+08:00 change path name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.167:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:35:31.286781+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Unconnected
+2016-08-31T11:35:31.351297+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:35:31.353506+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting
+2016-08-31T11:35:31.359664+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Disconnecting
+2016-08-31T11:35:31.359729+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone
+2016-08-31T11:35:31.367528+08:00 destroy peer-device name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0
+2016-08-31T11:35:31.367528+08:00 destroy connection name:initial-resync-20160831-113513 peer-node-id:0 conn-name:drbd-sp2-autotest-1
+2016-08-31T11:35:31.367585+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting
+2016-08-31T11:35:31.367593+08:00 change connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:35:31.371462+08:00 destroy peer-device name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0
+2016-08-31T11:35:31.371462+08:00 destroy connection name:initial-resync-20160831-113513 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:35:31.371498+08:00 change device name:initial-resync-20160831-113513 volume:0 minor:138 disk:Detaching size:12248 read:24496 written:12248 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:35:31.371508+08:00 change device name:initial-resync-20160831-113513 volume:0 minor:138 disk:Diskless size:12248 read:24496 written:12248 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:35:31.373059+08:00 destroy device name:initial-resync-20160831-113513 volume:0 minor:138
+2016-08-31T11:35:31.377450+08:00 destroy resource name:initial-resync-20160831-113513

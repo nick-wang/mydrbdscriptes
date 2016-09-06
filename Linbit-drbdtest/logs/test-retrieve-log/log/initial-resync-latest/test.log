@@ -1,0 +1,124 @@
+drbd-sp2-autotest-1: test -d /usr/share/drbd-test
+drbd-sp2-autotest-1: timeout 30
+drbd-sp2-autotest-1: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-1: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=initial-resync-20160831-113513 EXXE_IDENT=exxe/initial-resync-20160831-113513 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/initial-resync-20160831-113513/drbd.conf'
+drbd-sp2-autotest-1: hostname -f
+drbd-sp2-autotest-1: drbd-version
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: test -d /usr/share/drbd-test
+drbd-sp2-autotest-2: timeout 30
+drbd-sp2-autotest-2: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-2: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=initial-resync-20160831-113513 EXXE_IDENT=exxe/initial-resync-20160831-113513 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/initial-resync-20160831-113513/drbd.conf'
+drbd-sp2-autotest-2: hostname -f
+drbd-sp2-autotest-2: drbd-version
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-3: test -d /usr/share/drbd-test
+drbd-sp2-autotest-3: timeout 30
+drbd-sp2-autotest-3: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-3: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=initial-resync-20160831-113513 EXXE_IDENT=exxe/initial-resync-20160831-113513 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/initial-resync-20160831-113513/drbd.conf'
+drbd-sp2-autotest-3: hostname -f
+drbd-sp2-autotest-3: drbd-version
+drbd-sp2-autotest-3: install-config
+drbd-sp2-autotest-3: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-3: iptables: Chain already exists.
+drbd-sp2-autotest-3: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-3: iptables: Chain already exists.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: rsyslogd drbd-sp2-autotest-1 5140
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: disable-faults
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: register-cleanup -t bash -c '! [ -e /proc/drbd ] || drbdsetup down $DRBD_TEST_JOB'
+drbd-sp2-autotest-1: create-disk --internal-meta --max-peers 2 --job initial-resync-20160831-113513 --volume-group scratch --size 10M initial-resync-20160831-113513-disk0
+drbd-sp2-autotest-2: create-disk --internal-meta --max-peers 2 --job initial-resync-20160831-113513 --volume-group scratch --size 10M initial-resync-20160831-113513-disk0
+drbd-sp2-autotest-3: create-disk --internal-meta --max-peers 2 --job initial-resync-20160831-113513 --volume-group scratch --size 10M initial-resync-20160831-113513-disk0
+* Bring up the first node, make it primary, and write defined data onto all volumes.
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: drbdadm up all -v
+drbd-sp2-autotest-1: drbdsetup new-resource initial-resync-20160831-113513 0 
+drbd-sp2-autotest-1: drbdsetup new-minor initial-resync-20160831-113513 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/initial-resync-20160831-113513-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/initial-resync-20160831-113513-disk0 /dev/scratch/initial-resync-20160831-113513-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer initial-resync-20160831-113513 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path initial-resync-20160831-113513 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup new-peer initial-resync-20160831-113513 2 --_name=drbd-sp2-autotest-3 
+drbd-sp2-autotest-1: drbdsetup new-path initial-resync-20160831-113513 2 ipv4:192.168.122.23:7789 ipv4:192.168.122.167:7789 
+drbd-sp2-autotest-1: drbdsetup connect initial-resync-20160831-113513 1 
+drbd-sp2-autotest-1: drbdsetup connect initial-resync-20160831-113513 2 
+drbd-sp2-autotest-1: drbdadm primary --force all -v
+drbd-sp2-autotest-1: drbdsetup primary initial-resync-20160831-113513 --force 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+Waiting for event drbd-sp2-autotest-1:0 -y device .* disk:UpToDate
+
+drbd-sp2-autotest-1: fio --section write -
+* Make the first node secondary again to allow read access on the other nodes.
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+* Bring up all other nodes as well, wait until they have all the data, and verify the data received.
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-3: install-config
+drbd-sp2-autotest-2 drbd-sp2-autotest-3: drbdadm up all -v
+drbd-sp2-autotest-2: drbdsetup new-resource initial-resync-20160831-113513 1 
+drbd-sp2-autotest-2: drbdsetup new-minor initial-resync-20160831-113513 138 0 
+drbd-sp2-autotest-2: drbdmeta 138 v09 /dev/scratch/initial-resync-20160831-113513-disk0 internal apply-al 
+drbd-sp2-autotest-2: drbdsetup attach 138 /dev/scratch/initial-resync-20160831-113513-disk0 /dev/scratch/initial-resync-20160831-113513-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-2: drbdsetup new-peer initial-resync-20160831-113513 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path initial-resync-20160831-113513 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup new-peer initial-resync-20160831-113513 2 --_name=drbd-sp2-autotest-3 
+drbd-sp2-autotest-2: drbdsetup new-path initial-resync-20160831-113513 2 ipv4:192.168.122.27:7789 ipv4:192.168.122.167:7789 
+drbd-sp2-autotest-2: drbdsetup connect initial-resync-20160831-113513 0 
+drbd-sp2-autotest-2: drbdsetup connect initial-resync-20160831-113513 2 
+drbd-sp2-autotest-3: drbdsetup new-resource initial-resync-20160831-113513 2 
+drbd-sp2-autotest-3: drbdsetup new-minor initial-resync-20160831-113513 138 0 
+drbd-sp2-autotest-3: drbdmeta 138 v09 /dev/scratch/initial-resync-20160831-113513-disk0 internal apply-al 
+drbd-sp2-autotest-3: drbdsetup attach 138 /dev/scratch/initial-resync-20160831-113513-disk0 /dev/scratch/initial-resync-20160831-113513-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-3: drbdsetup new-peer initial-resync-20160831-113513 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-3: drbdsetup new-path initial-resync-20160831-113513 0 ipv4:192.168.122.167:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-3: drbdsetup new-peer initial-resync-20160831-113513 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-3: drbdsetup new-path initial-resync-20160831-113513 1 ipv4:192.168.122.167:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-3: drbdsetup connect initial-resync-20160831-113513 0 
+drbd-sp2-autotest-3: drbdsetup connect initial-resync-20160831-113513 1 
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: drbdadm peer-device-options --c-min-rate 0 all -v
+drbd-sp2-autotest-1: drbdsetup peer-device-options initial-resync-20160831-113513 1 0 
+drbd-sp2-autotest-1: drbdsetup peer-device-options initial-resync-20160831-113513 2 0 
+drbd-sp2-autotest-2: drbdsetup peer-device-options initial-resync-20160831-113513 0 0 
+drbd-sp2-autotest-2: drbdsetup peer-device-options initial-resync-20160831-113513 2 0 
+drbd-sp2-autotest-3: drbdsetup peer-device-options initial-resync-20160831-113513 0 0 
+drbd-sp2-autotest-3: drbdsetup peer-device-options initial-resync-20160831-113513 1 0 
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-1:drbd-sp2-autotest-3:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 drbd-sp2-autotest-2:drbd-sp2-autotest-3:0 drbd-sp2-autotest-3:drbd-sp2-autotest-1:0 drbd-sp2-autotest-3:drbd-sp2-autotest-2:0 -y peer-device .* peer-disk:UpToDate
+
+drbd-sp2-autotest-2: drbdadm primary all -v
+drbd-sp2-autotest-2: drbdsetup primary initial-resync-20160831-113513 
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Primary
+
+drbd-sp2-autotest-2: fio --section verify -
+drbd-sp2-autotest-2: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-2 -y resource .* role:Secondary
+
+drbd-sp2-autotest-3: drbdadm primary all -v
+drbd-sp2-autotest-3: drbdsetup primary initial-resync-20160831-113513 
+Waiting for event drbd-sp2-autotest-3 -y resource .* role:Primary
+
+drbd-sp2-autotest-3: fio --section verify -
+drbd-sp2-autotest-3: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-3 -y resource .* role:Secondary
+
+* Shut down and clean up.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: drbdadm down all
+Waiting for event drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3 -y destroy resource
+
+drbd-sp2-autotest-1: rmmod drbd_transport_tcp
+drbd-sp2-autotest-2: rmmod drbd_transport_tcp
+drbd-sp2-autotest-3: rmmod drbd_transport_tcp
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: rmmod drbd
+drbd-sp2-autotest-1 drbd-sp2-autotest-2 drbd-sp2-autotest-3: cleanup
+drbd-sp2-autotest-1:   Logical volume "initial-resync-20160831-113513-disk0" successfully removed
+drbd-sp2-autotest-2:   Logical volume "initial-resync-20160831-113513-disk0" successfully removed
+drbd-sp2-autotest-3:   Logical volume "initial-resync-20160831-113513-disk0" successfully removed

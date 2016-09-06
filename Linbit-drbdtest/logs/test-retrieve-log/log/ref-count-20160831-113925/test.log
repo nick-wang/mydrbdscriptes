@@ -1,0 +1,89 @@
+drbd-sp2-autotest-1: test -d /usr/share/drbd-test
+drbd-sp2-autotest-1: timeout 30
+drbd-sp2-autotest-1: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-1: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=ref-count-20160831-113925 EXXE_IDENT=exxe/ref-count-20160831-113925 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/ref-count-20160831-113925/drbd.conf'
+drbd-sp2-autotest-1: hostname -f
+drbd-sp2-autotest-1: drbd-version
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: test -d /usr/share/drbd-test
+drbd-sp2-autotest-2: timeout 30
+drbd-sp2-autotest-2: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-2: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=ref-count-20160831-113925 EXXE_IDENT=exxe/ref-count-20160831-113925 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/ref-count-20160831-113925/drbd.conf'
+drbd-sp2-autotest-2: hostname -f
+drbd-sp2-autotest-2: drbd-version
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: rsyslogd drbd-sp2-autotest-1 5140
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: disable-faults
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: register-cleanup -t bash -c '! [ -e /proc/drbd ] || drbdsetup down $DRBD_TEST_JOB'
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm up all -v
+drbd-sp2-autotest-1: drbdsetup new-resource ref-count-20160831-113925 0 
+drbd-sp2-autotest-1: drbdsetup new-peer ref-count-20160831-113925 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path ref-count-20160831-113925 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect ref-count-20160831-113925 1 
+drbd-sp2-autotest-2: drbdsetup new-resource ref-count-20160831-113925 1 
+drbd-sp2-autotest-2: drbdsetup new-peer ref-count-20160831-113925 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path ref-count-20160831-113925 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup connect ref-count-20160831-113925 0 
+drbd-sp2-autotest-1: drbdadm primary --force all -v
+drbd-sp2-autotest-1: drbdsetup primary ref-count-20160831-113925 --force 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+drbd-sp2-autotest-1: drbdadm disconnect ref-count-20160831-113925:drbd-sp2-autotest-2
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2 -y connection .* connection:StandAlone
+
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+drbd-sp2-autotest-1: drbdsetup del-peer ref-count-20160831-113925 1
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 0}, found {'drbd_transport_tcp': 0, 'drbd': 2}
+drbd-sp2-autotest-1: drbdadm adjust ref-count-20160831-113925
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+drbd-sp2-autotest-1: drbdsetup net-options ref-count-20160831-113925 1 --verify-alg=md5
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+drbd-sp2-autotest-1: drbdsetup net-options ref-count-20160831-113925 1 --verify-alg=quaxi-wurstli
+drbd-sp2-autotest-1: ref-count-20160831-113925: Failure: (146) VERIFYAlgNotAvail
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+drbd-sp2-autotest-1: drbdadm down all
+Waiting for event drbd-sp2-autotest-1 -y destroy resource
+
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 1, 'drbd_transport_tcp': 0}, found {'drbd_transport_tcp': 0, 'drbd': 1}
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: drbdadm up all -v
+drbd-sp2-autotest-1: drbdsetup new-resource ref-count-20160831-113925 0 
+drbd-sp2-autotest-1: drbdsetup new-peer ref-count-20160831-113925 1 --_name=drbd-sp2-autotest-2 --verify-alg=quaxi-wurstly 
+drbd-sp2-autotest-1: ref-count-20160831-113925: Failure: (146) VERIFYAlgNotAvail
+drbd-sp2-autotest-1: Command 'drbdsetup new-peer ref-count-20160831-113925 1 --_name=drbd-sp2-autotest-2 --verify-alg=quaxi-wurstly' terminated with exit code 10
+drbd-sp2-autotest-1: drbdadm: new-path ref-count-20160831-113925: skipped due to earlier error
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 0}, found {'drbd_transport_tcp': 0, 'drbd': 2}
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: drbdadm adjust ref-count-20160831-113925
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm down all
+Waiting for event drbd-sp2-autotest-1 drbd-sp2-autotest-2 -y destroy resource
+
+drbd-sp2-autotest-1: lsmod
+expect {'drbd': 1, 'drbd_transport_tcp': 0}, found {'drbd_transport_tcp': 0, 'drbd': 1}
+drbd-sp2-autotest-1: rmmod drbd_transport_tcp
+drbd-sp2-autotest-2: rmmod drbd_transport_tcp
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: rmmod drbd
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: cleanup

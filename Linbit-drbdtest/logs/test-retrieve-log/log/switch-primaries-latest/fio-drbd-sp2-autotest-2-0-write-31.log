@@ -1,0 +1,33 @@
+## command: ['fio', '--section', 'write', '-']
+\Ndrbd-sp2-autotest-2: write: (g=0): rw=write, bs=4K-4K/4K-4K/4K-4K, ioengine=sync, iodepth=1
+drbd-sp2-autotest-2: fio-2.13
+drbd-sp2-autotest-2: Starting 1 process
+drbd-sp2-autotest-2: 
+
+drbd-sp2-autotest-2: write: (groupid=0, jobs=1): err= 0: pid=474: Wed Aug 31 11:39:18 2016
+drbd-sp2-autotest-2:   write: io=4056.0KB, bw=139862KB/s, iops=34965, runt=    29msec
+drbd-sp2-autotest-2:     clat (usec): min=1, max=357, avg= 2.68, stdev=15.18
+drbd-sp2-autotest-2:      lat (usec): min=1, max=357, avg= 2.89, stdev=15.16
+drbd-sp2-autotest-2:     clat percentiles (usec):
+drbd-sp2-autotest-2:      |  1.00th=[    1],  5.00th=[    1], 10.00th=[    1], 20.00th=[    2],
+drbd-sp2-autotest-2:      | 30.00th=[    2], 40.00th=[    2], 50.00th=[    2], 60.00th=[    2],
+drbd-sp2-autotest-2:      | 70.00th=[    2], 80.00th=[    2], 90.00th=[    2], 95.00th=[    3],
+drbd-sp2-autotest-2:      | 99.00th=[    5], 99.50th=[    7], 99.90th=[  330], 99.95th=[  358],
+drbd-sp2-autotest-2:      | 99.99th=[  358]
+drbd-sp2-autotest-2:     lat (usec) : 2=16.47%, 4=79.88%, 10=3.25%, 20=0.20%, 500=0.20%
+drbd-sp2-autotest-2:   cpu          : usr=0.00%, sys=28.57%, ctx=34, majf=0, minf=9
+drbd-sp2-autotest-2:   IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+drbd-sp2-autotest-2:      submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+drbd-sp2-autotest-2:      complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+drbd-sp2-autotest-2:      issued    : total=r=0/w=1014/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+drbd-sp2-autotest-2:      latency   : target=0, window=0, percentile=100.00%, depth=1
+drbd-sp2-autotest-2: 
+
+drbd-sp2-autotest-2: Run status group 0 (all jobs):
+drbd-sp2-autotest-2:   WRITE: io=4056KB, aggrb=139862KB/s, minb=139862KB/s, maxb=139862KB/s, mint=29msec, maxt=29msec
+drbd-sp2-autotest-2: 
+
+drbd-sp2-autotest-2: Disk stats (read/write):
+drbd-sp2-autotest-2:     drbd138: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%, aggrios=0/1016, aggrmerge=0/0, aggrticks=0/5184, aggrin_queue=5184, aggrutil=3.59%
+drbd-sp2-autotest-2:     dm-0: ios=0/1016, merge=0/0, ticks=0/5184, in_queue=5184, util=3.59%, aggrios=0/11, aggrmerge=0/1005, aggrticks=0/44, aggrin_queue=44, aggrutil=3.59%
+drbd-sp2-autotest-2:   vdb: ios=0/11, merge=0/1005, ticks=0/44, in_queue=44, util=3.59%

@@ -1,0 +1,27 @@
+Warning: Permanently added 'drbd-sp2-autotest-1,192.168.122.23' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'drbd-sp2-autotest-2,192.168.122.27' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'drbd-sp2-autotest-3,192.168.122.167' (ECDSA) to the list of known hosts.
+Logging to directory log/connect-20160831-113500
+drbd-sp2-autotest-1: drbdsetup new-resource connect-20160831-113500 0 
+drbd-sp2-autotest-1: drbdsetup new-peer connect-20160831-113500 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path connect-20160831-113500 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup new-peer connect-20160831-113500 2 --_name=drbd-sp2-autotest-3 
+drbd-sp2-autotest-1: drbdsetup new-path connect-20160831-113500 2 ipv4:192.168.122.23:7789 ipv4:192.168.122.167:7789 
+drbd-sp2-autotest-1: drbdsetup connect connect-20160831-113500 1 
+drbd-sp2-autotest-1: drbdsetup connect connect-20160831-113500 2 
+drbd-sp2-autotest-2: drbdsetup new-resource connect-20160831-113500 1 
+drbd-sp2-autotest-2: drbdsetup new-peer connect-20160831-113500 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path connect-20160831-113500 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup new-peer connect-20160831-113500 2 --_name=drbd-sp2-autotest-3 
+drbd-sp2-autotest-2: drbdsetup new-path connect-20160831-113500 2 ipv4:192.168.122.27:7789 ipv4:192.168.122.167:7789 
+drbd-sp2-autotest-2: drbdsetup connect connect-20160831-113500 0 
+drbd-sp2-autotest-2: drbdsetup connect connect-20160831-113500 2 
+drbd-sp2-autotest-3: drbdsetup new-resource connect-20160831-113500 2 
+drbd-sp2-autotest-3: drbdsetup new-peer connect-20160831-113500 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-3: drbdsetup new-path connect-20160831-113500 0 ipv4:192.168.122.167:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-3: drbdsetup new-peer connect-20160831-113500 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-3: drbdsetup new-path connect-20160831-113500 1 ipv4:192.168.122.167:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-3: drbdsetup connect connect-20160831-113500 0 
+drbd-sp2-autotest-3: drbdsetup connect connect-20160831-113500 1 
+
+

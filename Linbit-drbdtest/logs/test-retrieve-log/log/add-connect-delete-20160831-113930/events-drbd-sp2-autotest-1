@@ -1,0 +1,36 @@
+2016-08-31T11:39:31.110667+08:00 exists -
+2016-08-31T11:39:31.582630+08:00 create resource name:add-connect-delete-20160831-113930 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:39:31.584788+08:00 create device name:add-connect-delete-20160831-113930 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:39:31.639166+08:00 change device name:add-connect-delete-20160831-113930 volume:0 minor:138 disk:Attaching size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:39:31.645502+08:00 change device name:add-connect-delete-20160831-113930 volume:0 minor:138 disk:Inconsistent size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:39:31.661821+08:00 create connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:39:31.661821+08:00 create peer-device name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:39:31.668754+08:00 create path name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:39:31.671586+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected congested:no
+2016-08-31T11:39:31.679639+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:39:34.723957+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting
+2016-08-31T11:39:34.731421+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:39:34.734797+08:00 destroy peer-device name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0
+2016-08-31T11:39:34.734797+08:00 destroy connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:39:36.748492+08:00 create connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:39:36.748492+08:00 create peer-device name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:39:36.750752+08:00 create path name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789
+2016-08-31T11:39:36.759391+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected
+2016-08-31T11:39:36.765467+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:39:38.791403+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting
+2016-08-31T11:39:38.798837+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:39:38.802212+08:00 destroy peer-device name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0
+2016-08-31T11:39:38.802212+08:00 destroy connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:39:40.815050+08:00 create connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:39:40.815050+08:00 create peer-device name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:39:40.816463+08:00 create path name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789
+2016-08-31T11:39:40.824495+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected
+2016-08-31T11:39:40.829678+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:39:42.855030+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting
+2016-08-31T11:39:42.862739+08:00 change connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:39:42.866237+08:00 destroy peer-device name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0
+2016-08-31T11:39:42.866237+08:00 destroy connection name:add-connect-delete-20160831-113930 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:39:48.905255+08:00 change device name:add-connect-delete-20160831-113930 volume:0 minor:138 disk:Detaching size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:1
+2016-08-31T11:39:48.905313+08:00 change device name:add-connect-delete-20160831-113930 volume:0 minor:138 disk:Diskless size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:39:48.908475+08:00 destroy device name:add-connect-delete-20160831-113930 volume:0 minor:138
+2016-08-31T11:39:48.917329+08:00 destroy resource name:add-connect-delete-20160831-113930

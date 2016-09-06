@@ -1,0 +1,110 @@
+2016-08-31T11:40:33.437617+08:00 exists -
+2016-08-31T11:40:34.687030+08:00 create resource name:resync-never-connected.KNOWN-20160831-114032 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:40:34.691032+08:00 create device name:resync-never-connected.KNOWN-20160831-114032 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:40:34.780948+08:00 change device name:resync-never-connected.KNOWN-20160831-114032 volume:0 minor:138 disk:Attaching size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:40:34.786897+08:00 change device name:resync-never-connected.KNOWN-20160831-114032 volume:0 minor:138 disk:Inconsistent size:4056 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:40:34.792824+08:00 create connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:40:34.792824+08:00 create peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:1912 pending:0 unacked:0
+2016-08-31T11:40:34.799009+08:00 create path name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:40:34.807325+08:00 create connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:40:34.807325+08:00 create peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:1720 pending:0 unacked:0
+2016-08-31T11:40:34.808795+08:00 create path name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.167:7789 established:no
+2016-08-31T11:40:34.811604+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Unconnected congested:no
+2016-08-31T11:40:34.817664+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connecting
+2016-08-31T11:40:34.823832+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Unconnected
+2016-08-31T11:40:34.826328+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Connecting
+2016-08-31T11:40:35.352441+08:00 change path name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.167:7789 established:yes
+2016-08-31T11:40:35.493969+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Connected role:Secondary
+2016-08-31T11:40:35.522281+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:Established peer-disk:Inconsistent received:0 sent:0 out-of-sync:1720 pending:0 unacked:0
+2016-08-31T11:40:46.768097+08:00 change path name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:yes
+2016-08-31T11:40:46.843843+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Connected role:Secondary
+2016-08-31T11:40:46.843896+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established peer-disk:Inconsistent received:0 sent:0 out-of-sync:1912 pending:0 unacked:0
+2016-08-31T11:40:46.939212+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:46.939212+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 peer-disk:UpToDate received:0 sent:0 out-of-sync:1912 pending:0 unacked:0
+2016-08-31T11:40:46.959496+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:WFBitMapT received:0 sent:0 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:40:46.974988+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:46.987261+08:00 call helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target
+2016-08-31T11:40:47.002279+08:00 response helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:before-resync-target status:0
+2016-08-31T11:40:47.002489+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:SyncTarget received:0 sent:0 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:40:47.002489+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 resync-suspended:dependency received:0 sent:0 out-of-sync:1720 pending:0 unacked:0
+2016-08-31T11:40:49.946937+08:00 call helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target
+2016-08-31T11:40:49.956631+08:00 response helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 minor:138 helper:after-resync-target status:0
+2016-08-31T11:40:49.956679+08:00 change device name:resync-never-connected.KNOWN-20160831-114032 volume:0 minor:138 disk:UpToDate size:4056 read:0 written:4056 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 blocked:no
+2016-08-31T11:40:49.956679+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Established received:4056 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:49.956679+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 resync-suspended:no received:0 sent:0 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:40:50.001975+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:WFBitMapS received:0 sent:0 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:40:50.013983+08:00 call helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:50.029336+08:00 response helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:50.029851+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:SyncSource received:0 sent:0 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:40:52.993100+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:Established peer-disk:UpToDate received:0 sent:4056 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:53.145599+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:53.145650+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:53.148586+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 peer-disk:Outdated received:0 sent:4056 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:53.151492+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 peer-disk:UpToDate received:0 sent:4056 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:53.268032+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:53.272471+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 peer-disk:Outdated received:0 sent:4056 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:53.296250+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:53.326489+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:WFBitMapS received:0 sent:4056 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:40:53.336949+08:00 call helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:53.349194+08:00 response helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:53.349614+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:SyncSource peer-disk:Inconsistent received:0 sent:4056 out-of-sync:4056 pending:0 unacked:0
+2016-08-31T11:40:53.877178+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:53.878908+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:54.012128+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:54.036808+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:54.621456+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:54.625038+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:54.754050+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:54.770006+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:55.293271+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:55.297324+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:55.430480+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:55.434992+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:55.978966+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:55.983206+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:56.099338+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:56.116755+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:56.692641+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:56.694081+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:56.821444+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:56.843620+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:56.915976+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:Established received:0 sent:28392 out-of-sync:3964 pending:0 unacked:0
+2016-08-31T11:40:57.342865+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:57.346217+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:57.376579+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:WFBitMapS received:0 sent:32448 out-of-sync:3964 pending:0 unacked:0
+2016-08-31T11:40:57.391975+08:00 call helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:57.406140+08:00 response helper name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:57.406515+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:SyncSource received:0 sent:32448 out-of-sync:3964 pending:0 unacked:0
+2016-08-31T11:40:57.464941+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:57.473275+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:58.025187+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:58.028810+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:58.155269+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:58.180709+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:58.707509+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:58.710152+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:58.829574+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:58.848310+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:59.387186+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:59.389672+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:59.506395+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Primary
+2016-08-31T11:40:59.524524+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 role:Secondary
+2016-08-31T11:40:59.879967+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:Disconnecting role:Unknown
+2016-08-31T11:40:59.879967+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0 replication:Off peer-disk:DUnknown received:44616 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:59.880461+08:00 change path name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.23:7789 established:no
+2016-08-31T11:40:59.899174+08:00 change path name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 local:ipv4:192.168.122.27:7789 peer:ipv4:192.168.122.167:7789 established:no
+2016-08-31T11:40:59.899492+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 connection:StandAlone
+2016-08-31T11:40:59.899513+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:TearDown role:Unknown
+2016-08-31T11:40:59.899513+08:00 change peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0 replication:Off received:0 sent:51012 out-of-sync:3564 pending:0 unacked:0
+2016-08-31T11:40:59.906252+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Unconnected
+2016-08-31T11:40:59.906288+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Connecting
+2016-08-31T11:40:59.909692+08:00 destroy peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1 volume:0
+2016-08-31T11:40:59.909692+08:00 destroy connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:0 conn-name:drbd-sp2-autotest-1
+2016-08-31T11:40:59.914330+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Disconnecting
+2016-08-31T11:40:59.914361+08:00 change connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:StandAlone
+2016-08-31T11:40:59.917546+08:00 destroy peer-device name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3 volume:0
+2016-08-31T11:40:59.917546+08:00 destroy connection name:resync-never-connected.KNOWN-20160831-114032 peer-node-id:2 conn-name:drbd-sp2-autotest-3
+2016-08-31T11:40:59.919103+08:00 change device name:resync-never-connected.KNOWN-20160831-114032 volume:0 minor:138 disk:Detaching size:4056 read:51012 written:44616 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:40:59.919133+08:00 change device name:resync-never-connected.KNOWN-20160831-114032 volume:0 minor:138 disk:Diskless size:4056 read:51012 written:44616 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:40:59.920975+08:00 destroy device name:resync-never-connected.KNOWN-20160831-114032 volume:0 minor:138
+2016-08-31T11:40:59.928396+08:00 destroy resource name:resync-never-connected.KNOWN-20160831-114032

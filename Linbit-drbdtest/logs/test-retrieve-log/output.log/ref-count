@@ -1,0 +1,35 @@
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+Logging to directory log/ref-count-20160831-113925
+drbd-sp2-autotest-1: drbdsetup new-resource ref-count-20160831-113925 0 
+drbd-sp2-autotest-1: drbdsetup new-peer ref-count-20160831-113925 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path ref-count-20160831-113925 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect ref-count-20160831-113925 1 
+drbd-sp2-autotest-2: drbdsetup new-resource ref-count-20160831-113925 1 
+drbd-sp2-autotest-2: drbdsetup new-peer ref-count-20160831-113925 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path ref-count-20160831-113925 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup connect ref-count-20160831-113925 0 
+drbd-sp2-autotest-1: drbdsetup primary ref-count-20160831-113925 --force 
+drbd-sp2-autotest-1: ref-count-20160831-113925: Failure: (146) VERIFYAlgNotAvail
+
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+expect {'drbd': 2, 'drbd_transport_tcp': 0}, found {'drbd_transport_tcp': 0, 'drbd': 2}
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+
+expect {'drbd': 1, 'drbd_transport_tcp': 0}, found {'drbd_transport_tcp': 0, 'drbd': 1}
+drbd-sp2-autotest-1: drbdsetup new-resource ref-count-20160831-113925 0 
+drbd-sp2-autotest-1: drbdsetup new-peer ref-count-20160831-113925 1 --_name=drbd-sp2-autotest-2 --verify-alg=quaxi-wurstly 
+drbd-sp2-autotest-1: ref-count-20160831-113925: Failure: (146) VERIFYAlgNotAvail
+drbd-sp2-autotest-1: Command 'drbdsetup new-peer ref-count-20160831-113925 1 --_name=drbd-sp2-autotest-2 --verify-alg=quaxi-wurstly' terminated with exit code 10
+drbd-sp2-autotest-1: drbdadm: new-path ref-count-20160831-113925: skipped due to earlier error
+expect {'drbd': 2, 'drbd_transport_tcp': 0}, found {'drbd_transport_tcp': 0, 'drbd': 2}
+expect {'drbd': 2, 'drbd_transport_tcp': 1}, found {'drbd_transport_tcp': 1, 'drbd': 2}
+
+expect {'drbd': 1, 'drbd_transport_tcp': 0}, found {'drbd_transport_tcp': 0, 'drbd': 1}

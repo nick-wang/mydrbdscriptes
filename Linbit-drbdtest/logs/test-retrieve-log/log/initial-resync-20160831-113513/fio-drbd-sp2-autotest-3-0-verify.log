@@ -1,0 +1,35 @@
+## command: ['fio', '--section', 'verify', '-']
+\Ndrbd-sp2-autotest-3: verify: (g=0): rw=read, bs=4K-4K/4K-4K/4K-4K, ioengine=sync, iodepth=1
+drbd-sp2-autotest-3: fio-2.13
+drbd-sp2-autotest-3: Starting 1 process
+drbd-sp2-autotest-3: 
+
+drbd-sp2-autotest-3: verify: (groupid=0, jobs=1): err= 0: pid=6508: Wed Aug 31 11:35:31 2016
+drbd-sp2-autotest-3:   read : io=12248KB, bw=765500KB/s, iops=191375, runt=    16msec
+drbd-sp2-autotest-3:     clat (usec): min=0, max=2753, avg= 3.55, stdev=50.60
+drbd-sp2-autotest-3:      lat (usec): min=0, max=2753, avg= 3.80, stdev=50.60
+drbd-sp2-autotest-3:     clat percentiles (usec):
+drbd-sp2-autotest-3:      |  1.00th=[    0],  5.00th=[    0], 10.00th=[    1], 20.00th=[    1],
+drbd-sp2-autotest-3:      | 30.00th=[    1], 40.00th=[    2], 50.00th=[    2], 60.00th=[    2],
+drbd-sp2-autotest-3:      | 70.00th=[    2], 80.00th=[    3], 90.00th=[    3], 95.00th=[    4],
+drbd-sp2-autotest-3:      | 99.00th=[   16], 99.50th=[   47], 99.90th=[  151], 99.95th=[  243],
+drbd-sp2-autotest-3:      | 99.99th=[ 2768]
+drbd-sp2-autotest-3:     lat (usec) : 2=37.79%, 4=54.31%, 10=6.79%, 20=0.13%, 50=0.49%
+drbd-sp2-autotest-3:     lat (usec) : 100=0.07%, 250=0.39%
+drbd-sp2-autotest-3:     lat (msec) : 4=0.03%
+drbd-sp2-autotest-3:   cpu          : usr=18.75%, sys=37.50%, ctx=8, majf=0, minf=5
+drbd-sp2-autotest-3:   IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+drbd-sp2-autotest-3:      submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+drbd-sp2-autotest-3:      complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+drbd-sp2-autotest-3:      issued    : total=r=3062/w=0/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+drbd-sp2-autotest-3:      latency   : target=0, window=0, percentile=100.00%, depth=1
+drbd-sp2-autotest-3: 
+
+drbd-sp2-autotest-3: Run status group 0 (all jobs):
+drbd-sp2-autotest-3:    READ: io=12248KB, aggrb=765500KB/s, minb=765500KB/s, maxb=765500KB/s, mint=16msec, maxt=16msec
+drbd-sp2-autotest-3: 
+
+drbd-sp2-autotest-3: Disk stats (read/write):
+drbd-sp2-autotest-3:     drbd138: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%, aggrios=40/0, aggrmerge=0/0, aggrticks=12/0, aggrin_queue=12, aggrutil=3.08%
+drbd-sp2-autotest-3:     dm-0: ios=40/0, merge=0/0, ticks=12/0, in_queue=12, util=3.08%, aggrios=28/0, aggrmerge=12/0, aggrticks=8/0, aggrin_queue=8, aggrutil=3.08%
+drbd-sp2-autotest-3:   vdb: ios=28/0, merge=12/0, ticks=8/0, in_queue=8, util=3.08%

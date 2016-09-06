@@ -1,0 +1,64 @@
+2016-08-31T11:35:01.385017+08:00 drbd-sp2-autotest-1 rsyslogd: [origin software="rsyslogd" swVersion="8.4.0" x-pid="6295" x-info="http://www.rsyslog.com"] start
+2016-08-31T11:35:01.353024+08:00 drbd-sp2-autotest-1 systemd[1]: Stopping System Logging Service...
+2016-08-31T11:35:01.357689+08:00 drbd-sp2-autotest-1 systemd[1]: Stopped System Logging Service.
+2016-08-31T11:35:01.357982+08:00 drbd-sp2-autotest-1 systemd[1]: Starting System Logging Service...
+2016-08-31T11:35:01.385631+08:00 drbd-sp2-autotest-1 systemd[1]: Started System Logging Service.
+2016-08-31T11:35:01.394170+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.394233+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.465300+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.465423+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.495371+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.495434+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.535401+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.535465+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.580690+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.580743+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.596811+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.596856+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.625419+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.625463+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.629368+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.629408+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.633526+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.633566+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.637474+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.637543+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.663511+08:00 drbd-sp2-autotest-1 sshd[6323]: pam_unix(sshd:session): session opened for user root by (uid=0)
+2016-08-31T11:35:01.663685+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:01.663734+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:01.666210+08:00 drbd-sp2-autotest-1 systemd[1]: Started Session 20 of user root.
+2016-08-31T11:35:01.666914+08:00 drbd-sp2-autotest-1 systemd-logind[3985]: New session 20 of user root.
+2016-08-31T11:35:02.210765+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:02.210844+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:02.393741+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:02.393819+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:02.397892+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:02.397964+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:10.710220+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:10.710302+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:10.826573+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:10.826666+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:10.872509+08:00 drbd-sp2-autotest-1 kernel: [  318.617336] drbd connect-20160831-113500 drbd-sp2-autotest-3: Connection closed
+2016-08-31T11:35:10.872525+08:00 drbd-sp2-autotest-1 kernel: [  318.617344] drbd connect-20160831-113500 drbd-sp2-autotest-3: conn( NetworkFailure -> Unconnected )
+2016-08-31T11:35:10.872528+08:00 drbd-sp2-autotest-1 kernel: [  318.617348] drbd connect-20160831-113500 drbd-sp2-autotest-3: Restarting receiver thread
+2016-08-31T11:35:10.872529+08:00 drbd-sp2-autotest-1 kernel: [  318.617352] drbd connect-20160831-113500 drbd-sp2-autotest-3: conn( Unconnected -> Connecting )
+2016-08-31T11:35:10.872530+08:00 drbd-sp2-autotest-1 kernel: [  318.628655] drbd connect-20160831-113500 drbd-sp2-autotest-2: Connection closed
+2016-08-31T11:35:10.872531+08:00 drbd-sp2-autotest-1 kernel: [  318.628661] drbd connect-20160831-113500 drbd-sp2-autotest-2: conn( NetworkFailure -> Unconnected )
+2016-08-31T11:35:10.872533+08:00 drbd-sp2-autotest-1 kernel: [  318.628665] drbd connect-20160831-113500 drbd-sp2-autotest-2: Restarting receiver thread
+2016-08-31T11:35:10.872534+08:00 drbd-sp2-autotest-1 kernel: [  318.628668] drbd connect-20160831-113500 drbd-sp2-autotest-2: conn( Unconnected -> Connecting )
+2016-08-31T11:35:10.872830+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:10.873021+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:10.884480+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:10.884542+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:11.888920+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:11.888992+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:12.879950+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:12.880024+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:12.898708+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:12.898800+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:12.910304+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:12.910380+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:12.917977+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:12.918049+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]
+2016-08-31T11:35:12.927898+08:00 drbd-sp2-autotest-1 rsyslogd0: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/0 ]
+2016-08-31T11:35:12.927966+08:00 drbd-sp2-autotest-1 rsyslogd-2359: action 'action 1' resumed (module 'builtin:omfwd') [try http://www.rsyslog.com/e/2359 ]

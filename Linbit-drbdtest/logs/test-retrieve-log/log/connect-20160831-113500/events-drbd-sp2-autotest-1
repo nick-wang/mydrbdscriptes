@@ -1,0 +1,23 @@
+2016-08-31T11:35:01.736014+08:00 exists resource name:connect-20160831-113500 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:35:01.736014+08:00 exists connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting role:Unknown congested:no
+2016-08-31T11:35:01.736014+08:00 exists connection name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Connecting role:Unknown congested:no
+2016-08-31T11:35:01.736097+08:00 exists -
+2016-08-31T11:35:02.206001+08:00 change path name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.167:7789 established:yes
+2016-08-31T11:35:02.390004+08:00 change connection name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Connected role:Secondary
+2016-08-31T11:35:10.705674+08:00 change path name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:yes
+2016-08-31T11:35:10.822117+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connected role:Secondary
+2016-08-31T11:35:10.832300+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:NetworkFailure role:Unknown
+2016-08-31T11:35:10.872327+08:00 change path name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.167:7789 established:no
+2016-08-31T11:35:10.872414+08:00 change path name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:35:10.872437+08:00 change connection name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:NetworkFailure role:Unknown
+2016-08-31T11:35:10.872451+08:00 change connection name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Unconnected
+2016-08-31T11:35:10.872462+08:00 change connection name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Connecting
+2016-08-31T11:35:10.872472+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected
+2016-08-31T11:35:10.872483+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:35:10.884099+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting
+2016-08-31T11:35:10.884136+08:00 change connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:35:11.879395+08:00 destroy connection name:connect-20160831-113500 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:35:11.888516+08:00 change connection name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:Disconnecting
+2016-08-31T11:35:11.888559+08:00 change connection name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3 connection:StandAlone
+2016-08-31T11:35:12.876260+08:00 destroy connection name:connect-20160831-113500 peer-node-id:2 conn-name:drbd-sp2-autotest-3
+2016-08-31T11:35:12.876518+08:00 destroy resource name:connect-20160831-113500

@@ -1,0 +1,67 @@
+2016-08-31T11:40:10.744887+08:00 exists -
+2016-08-31T11:40:11.192755+08:00 create resource name:ahead-behind.KNOWN-20160831-114009 role:Secondary suspended:no write-ordering:none
+2016-08-31T11:40:11.196198+08:00 create device name:ahead-behind.KNOWN-20160831-114009 volume:0 minor:138 disk:Diskless size:0 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:0 al-suspended:no blocked:no
+2016-08-31T11:40:11.310130+08:00 change device name:ahead-behind.KNOWN-20160831-114009 volume:0 minor:138 disk:Attaching size:65496 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 al-suspended:no blocked:upper
+2016-08-31T11:40:11.317529+08:00 change device name:ahead-behind.KNOWN-20160831-114009 volume:0 minor:138 disk:Inconsistent size:65496 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2
+2016-08-31T11:40:11.322944+08:00 create connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone role:Unknown congested:no
+2016-08-31T11:40:11.322944+08:00 create peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown resync-suspended:no received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:11.333821+08:00 create path name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:40:11.341703+08:00 change connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected congested:no
+2016-08-31T11:40:11.352478+08:00 change connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:40:11.868937+08:00 change path name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:yes
+2016-08-31T11:40:11.902419+08:00 change connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connected role:Secondary
+2016-08-31T11:40:11.923914+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Established peer-disk:Inconsistent received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:11.948908+08:00 change device name:ahead-behind.KNOWN-20160831-114009 volume:0 minor:138 disk:UpToDate size:65496 read:0 written:0 al-writes:0 bm-writes:0 upper-pending:0 lower-pending:2 blocked:no
+2016-08-31T11:40:11.948908+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 peer-disk:UpToDate received:0 sent:0 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:11.972157+08:00 change resource name:ahead-behind.KNOWN-20160831-114009 role:Primary write-ordering:drain
+2016-08-31T11:40:12.005344+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Ahead peer-disk:Consistent received:0 sent:0 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:12.011918+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 peer-disk:Outdated received:0 sent:0 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:13.012805+08:00 call helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:13.038043+08:00 response helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:13.038099+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:SyncSource peer-disk:Inconsistent received:0 sent:0 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:13.072901+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Ahead received:0 sent:0 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:13.102074+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 peer-disk:Outdated received:0 sent:0 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:14.098689+08:00 call helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:14.122698+08:00 response helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:14.122757+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:SyncSource peer-disk:Inconsistent received:0 sent:0 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:16.094244+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Established peer-disk:UpToDate received:0 sent:2048 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:16.105403+08:00 change resource name:ahead-behind.KNOWN-20160831-114009 role:Secondary write-ordering:drain
+2016-08-31T11:40:16.138867+08:00 change resource name:ahead-behind.KNOWN-20160831-114009 role:Primary write-ordering:drain
+2016-08-31T11:40:16.161346+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Ahead peer-disk:Consistent received:0 sent:2048 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:16.173961+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 peer-disk:Outdated received:0 sent:2048 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:17.169570+08:00 call helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:17.193836+08:00 response helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:17.193898+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:SyncSource peer-disk:Inconsistent received:0 sent:2048 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:17.215555+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Ahead received:0 sent:2048 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:17.267943+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 peer-disk:Outdated received:0 sent:2048 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:18.266130+08:00 call helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:18.292693+08:00 response helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:18.292762+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:SyncSource peer-disk:Inconsistent received:0 sent:2048 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:20.254523+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Established peer-disk:UpToDate received:0 sent:4096 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:20.263380+08:00 change resource name:ahead-behind.KNOWN-20160831-114009 role:Secondary
+2016-08-31T11:40:20.296419+08:00 change resource name:ahead-behind.KNOWN-20160831-114009 role:Primary write-ordering:drain
+2016-08-31T11:40:20.315916+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Ahead peer-disk:Consistent received:0 sent:4096 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:20.323092+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 peer-disk:Outdated received:0 sent:4096 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:21.320727+08:00 call helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:21.343308+08:00 response helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:21.343394+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:SyncSource peer-disk:Inconsistent received:0 sent:4096 out-of-sync:1024 pending:0 unacked:0
+2016-08-31T11:40:21.351953+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Ahead received:0 sent:4096 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:21.376292+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 peer-disk:Outdated received:0 sent:4096 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:22.374048+08:00 call helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source
+2016-08-31T11:40:22.390828+08:00 response helper name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 minor:138 helper:before-resync-source status:0
+2016-08-31T11:40:22.390893+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:SyncSource peer-disk:Inconsistent received:0 sent:4096 out-of-sync:2048 pending:0 unacked:0
+2016-08-31T11:40:24.350815+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Established peer-disk:UpToDate received:0 sent:6144 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:24.362967+08:00 change resource name:ahead-behind.KNOWN-20160831-114009 role:Secondary
+2016-08-31T11:40:24.429398+08:00 change connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:TearDown role:Unknown
+2016-08-31T11:40:24.429398+08:00 change peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0 replication:Off peer-disk:DUnknown received:0 sent:6144 out-of-sync:0 pending:0 unacked:0
+2016-08-31T11:40:24.430034+08:00 change path name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 local:ipv4:192.168.122.23:7789 peer:ipv4:192.168.122.27:7789 established:no
+2016-08-31T11:40:24.440758+08:00 change connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Unconnected congested:no
+2016-08-31T11:40:24.440793+08:00 change connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Connecting
+2016-08-31T11:40:24.446404+08:00 change connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:Disconnecting
+2016-08-31T11:40:24.453064+08:00 change connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 connection:StandAlone
+2016-08-31T11:40:24.457244+08:00 destroy peer-device name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2 volume:0
+2016-08-31T11:40:24.457244+08:00 destroy connection name:ahead-behind.KNOWN-20160831-114009 peer-node-id:1 conn-name:drbd-sp2-autotest-2
+2016-08-31T11:40:24.459462+08:00 change device name:ahead-behind.KNOWN-20160831-114009 volume:0 minor:138 disk:Detaching size:65496 read:6144 written:12288 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:40:24.459506+08:00 change device name:ahead-behind.KNOWN-20160831-114009 volume:0 minor:138 disk:Diskless size:65496 read:6144 written:12288 al-writes:1 bm-writes:0 upper-pending:0 lower-pending:1 blocked:upper
+2016-08-31T11:40:24.462299+08:00 destroy device name:ahead-behind.KNOWN-20160831-114009 volume:0 minor:138
+2016-08-31T11:40:24.469286+08:00 destroy resource name:ahead-behind.KNOWN-20160831-114009

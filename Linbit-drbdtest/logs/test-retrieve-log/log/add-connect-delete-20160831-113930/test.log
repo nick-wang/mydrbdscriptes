@@ -1,0 +1,81 @@
+drbd-sp2-autotest-1: test -d /usr/share/drbd-test
+drbd-sp2-autotest-1: timeout 30
+drbd-sp2-autotest-1: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-1: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=add-connect-delete-20160831-113930 EXXE_IDENT=exxe/add-connect-delete-20160831-113930 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/add-connect-delete-20160831-113930/drbd.conf'
+drbd-sp2-autotest-1: hostname -f
+drbd-sp2-autotest-1: drbd-version
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: test -d /usr/share/drbd-test
+drbd-sp2-autotest-2: timeout 30
+drbd-sp2-autotest-2: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-2: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=add-connect-delete-20160831-113930 EXXE_IDENT=exxe/add-connect-delete-20160831-113930 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/add-connect-delete-20160831-113930/drbd.conf'
+drbd-sp2-autotest-2: hostname -f
+drbd-sp2-autotest-2: drbd-version
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: rsyslogd drbd-sp2-autotest-1 5140
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: disable-faults
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: register-cleanup -t bash -c '! [ -e /proc/drbd ] || drbdsetup down $DRBD_TEST_JOB'
+drbd-sp2-autotest-1: create-disk --internal-meta --max-peers 1 --job add-connect-delete-20160831-113930 --volume-group scratch --size 4M add-connect-delete-20160831-113930-disk0
+drbd-sp2-autotest-2: create-disk --internal-meta --max-peers 1 --job add-connect-delete-20160831-113930 --volume-group scratch --size 4M add-connect-delete-20160831-113930-disk0
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: drbdadm up all -v
+drbd-sp2-autotest-1: drbdsetup new-resource add-connect-delete-20160831-113930 0 
+drbd-sp2-autotest-1: drbdsetup new-minor add-connect-delete-20160831-113930 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/add-connect-delete-20160831-113930-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/add-connect-delete-20160831-113930-disk0 /dev/scratch/add-connect-delete-20160831-113930-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer add-connect-delete-20160831-113930 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect add-connect-delete-20160831-113930 1 
+Waiting for event drbd-sp2-autotest-1 -y connection .* connection:Connecting
+
+Try 1
+drbd-sp2-autotest-1: drbdadm adjust all -v
+drbd-sp2-autotest-1: drbdadm del-path all -v
+drbd-sp2-autotest-1: drbdsetup del-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: add-connect-delete-20160831-113930: Failure: (162) Invalid configuration request
+drbd-sp2-autotest-1: additional info from kernel:
+drbd-sp2-autotest-1: Can not delete last path, use disconnect first!
+drbd-sp2-autotest-1: Command 'drbdsetup del-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789' terminated with exit code 10
+drbd-sp2-autotest-1: drbdadm adjust all -v
+drbd-sp2-autotest-1: drbdadm del-peer all -v
+drbd-sp2-autotest-1: drbdsetup del-peer add-connect-delete-20160831-113930 1 
+Try 2
+drbd-sp2-autotest-1: drbdadm adjust all -v
+drbd-sp2-autotest-1: drbdsetup new-peer add-connect-delete-20160831-113930 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect add-connect-delete-20160831-113930 1 
+drbd-sp2-autotest-1: drbdadm del-path all -v
+drbd-sp2-autotest-1: drbdsetup del-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: add-connect-delete-20160831-113930: Failure: (162) Invalid configuration request
+drbd-sp2-autotest-1: additional info from kernel:
+drbd-sp2-autotest-1: Can not delete last path, use disconnect first!
+drbd-sp2-autotest-1: Command 'drbdsetup del-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789' terminated with exit code 10
+drbd-sp2-autotest-1: drbdadm adjust all -v
+drbd-sp2-autotest-1: drbdadm del-peer all -v
+drbd-sp2-autotest-1: drbdsetup del-peer add-connect-delete-20160831-113930 1 
+Try 3
+drbd-sp2-autotest-1: drbdadm adjust all -v
+drbd-sp2-autotest-1: drbdsetup new-peer add-connect-delete-20160831-113930 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect add-connect-delete-20160831-113930 1 
+drbd-sp2-autotest-1: drbdadm del-path all -v
+drbd-sp2-autotest-1: drbdsetup del-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: add-connect-delete-20160831-113930: Failure: (162) Invalid configuration request
+drbd-sp2-autotest-1: additional info from kernel:
+drbd-sp2-autotest-1: Can not delete last path, use disconnect first!
+drbd-sp2-autotest-1: Command 'drbdsetup del-path add-connect-delete-20160831-113930 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789' terminated with exit code 10
+drbd-sp2-autotest-1: drbdadm adjust all -v
+drbd-sp2-autotest-1: drbdadm del-peer all -v
+drbd-sp2-autotest-1: drbdsetup del-peer add-connect-delete-20160831-113930 1 
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: cleanup
+drbd-sp2-autotest-1:   drbd-sp2-autotest-1: Logical volume scratch/add-connect-delete-20160831-113930-disk0 is used by another device.drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: cleanup failed with status 1drbd-sp2-autotest-2:   Logical volume "add-connect-delete-20160831-113930-disk0" successfully removed

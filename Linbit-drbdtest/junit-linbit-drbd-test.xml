@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<testsuites errors="0" failures="0" skipped="0" tests="11" time="0.0">
+	<testsuite errors="0" failures="0" name="Linbit DRBD Test" skipped="0" tests="11" time="0">
+		<testcase classname="LinbitTest.basic" name="latency"/>
+		<testcase classname="LinbitTest.basic" name="add-path-multiple-times"/>
+		<testcase classname="LinbitTest.performance" name="ahead-behind.KNOWN"/>
+		<testcase classname="LinbitTest.basic" name="resize.KNOWN"/>
+		<testcase classname="LinbitTest.performance" name="misaligned-bio"/>
+		<testcase classname="LinbitTest.basic" name="switch-primaries"/>
+		<testcase classname="LinbitTest.basic" name="connect"/>
+		<testcase classname="LinbitTest.basic" name="add-connect-delete"/>
+		<testcase classname="LinbitTest.exception" name="resync-never-connected.KNOWN"/>
+		<testcase classname="LinbitTest.basic" name="ref-count"/>
+		<testcase classname="LinbitTest.basic" name="initial-resync"/>
+	</testsuite>
+</testsuites>

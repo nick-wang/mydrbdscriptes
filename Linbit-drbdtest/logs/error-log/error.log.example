@@ -1,0 +1,105 @@
+drbd-test-sp2-manually-1:/drbdtest/drbd-test.git # ./tests/initial-resync ${PEERS[@]}
+Logging to directory log/initial-resync-20160721-161441
+drbd-test-sp2-manually-1: iptables: Chain already exists.
+drbd-test-sp2-manually-1: iptables: Chain already exists.
+drbd-test-sp2-manually-2: iptables: Chain already exists.
+drbd-test-sp2-manually-2: iptables: Chain already exists.
+drbd-test-sp2-manually-3: iptables: Chain already exists.
+drbd-test-sp2-manually-3: iptables: Chain already exists.
+drbd-test-sp2-manually-4: iptables: Chain already exists.
+drbd-test-sp2-manually-4: iptables: Chain already exists.
+drbd-test-sp2-manually-1: drbdsetup new-resource initial-resync-20160721-161441 0 
+drbd-test-sp2-manually-1: drbdsetup new-minor initial-resync-20160721-161441 138 0 
+drbd-test-sp2-manually-1: drbdmeta 138 v09 /dev/scratch/initial-resync-20160721-161441-disk0 internal apply-al 
+drbd-test-sp2-manually-1: drbdsetup attach 138 /dev/scratch/initial-resync-20160721-161441-disk0 /dev/scratch/initial-resync-20160721-161441-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-test-sp2-manually-1: drbdsetup new-peer initial-resync-20160721-161441 1 --_name=drbd-test-sp2-manually-2 
+drbd-test-sp2-manually-1: drbdsetup new-path initial-resync-20160721-161441 1 ipv4:192.168.122.81:7789 ipv4:192.168.122.110:7789 
+drbd-test-sp2-manually-1: drbdsetup new-peer initial-resync-20160721-161441 2 --_name=drbd-test-sp2-manually-3 
+drbd-test-sp2-manually-1: drbdsetup new-path initial-resync-20160721-161441 2 ipv4:192.168.122.81:7789 ipv4:192.168.122.4:7789 
+drbd-test-sp2-manually-1: drbdsetup new-peer initial-resync-20160721-161441 3 --_name=drbd-test-sp2-manually-4 
+drbd-test-sp2-manually-1: drbdsetup new-path initial-resync-20160721-161441 3 ipv4:192.168.122.81:7789 ipv4:192.168.122.212:7789 
+drbd-test-sp2-manually-1: drbdsetup connect initial-resync-20160721-161441 1 
+drbd-test-sp2-manually-1: drbdsetup connect initial-resync-20160721-161441 2 
+drbd-test-sp2-manually-1: drbdsetup connect initial-resync-20160721-161441 3 
+drbd-test-sp2-manually-1: drbdsetup primary initial-resync-20160721-161441 --force 
+
+
+
+drbd-test-sp2-manually-2: drbdsetup new-resource initial-resync-20160721-161441 1 
+drbd-test-sp2-manually-2: drbdsetup new-minor initial-resync-20160721-161441 138 0 
+drbd-test-sp2-manually-2: drbdmeta 138 v09 /dev/scratch/initial-resync-20160721-161441-disk0 internal apply-al 
+drbd-test-sp2-manually-2: drbdsetup attach 138 /dev/scratch/initial-resync-20160721-161441-disk0 /dev/scratch/initial-resync-20160721-161441-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-test-sp2-manually-2: drbdsetup new-peer initial-resync-20160721-161441 0 --_name=drbd-test-sp2-manually-1 
+drbd-test-sp2-manually-2: drbdsetup new-path initial-resync-20160721-161441 0 ipv4:192.168.122.110:7789 ipv4:192.168.122.81:7789 
+drbd-test-sp2-manually-2: drbdsetup new-peer initial-resync-20160721-161441 2 --_name=drbd-test-sp2-manually-3 
+drbd-test-sp2-manually-2: drbdsetup new-path initial-resync-20160721-161441 2 ipv4:192.168.122.110:7789 ipv4:192.168.122.4:7789 
+drbd-test-sp2-manually-2: drbdsetup new-peer initial-resync-20160721-161441 3 --_name=drbd-test-sp2-manually-4 
+drbd-test-sp2-manually-2: drbdsetup new-path initial-resync-20160721-161441 3 ipv4:192.168.122.110:7789 ipv4:192.168.122.212:7789 
+drbd-test-sp2-manually-2: drbdsetup connect initial-resync-20160721-161441 0 
+drbd-test-sp2-manually-2: drbdsetup connect initial-resync-20160721-161441 2 
+drbd-test-sp2-manually-2: drbdsetup connect initial-resync-20160721-161441 3 
+drbd-test-sp2-manually-3: drbdsetup new-resource initial-resync-20160721-161441 2 
+drbd-test-sp2-manually-3: drbdsetup new-minor initial-resync-20160721-161441 138 0 
+drbd-test-sp2-manually-3: drbdmeta 138 v09 /dev/scratch/initial-resync-20160721-161441-disk0 internal apply-al 
+drbd-test-sp2-manually-3: drbdsetup attach 138 /dev/scratch/initial-resync-20160721-161441-disk0 /dev/scratch/initial-resync-20160721-161441-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-test-sp2-manually-3: drbdsetup new-peer initial-resync-20160721-161441 0 --_name=drbd-test-sp2-manually-1 
+drbd-test-sp2-manually-3: drbdsetup new-path initial-resync-20160721-161441 0 ipv4:192.168.122.4:7789 ipv4:192.168.122.81:7789 
+drbd-test-sp2-manually-3: drbdsetup new-peer initial-resync-20160721-161441 1 --_name=drbd-test-sp2-manually-2 
+drbd-test-sp2-manually-3: drbdsetup new-path initial-resync-20160721-161441 1 ipv4:192.168.122.4:7789 ipv4:192.168.122.110:7789 
+drbd-test-sp2-manually-3: drbdsetup new-peer initial-resync-20160721-161441 3 --_name=drbd-test-sp2-manually-4 
+drbd-test-sp2-manually-3: drbdsetup new-path initial-resync-20160721-161441 3 ipv4:192.168.122.4:7789 ipv4:192.168.122.212:7789 
+drbd-test-sp2-manually-3: drbdsetup connect initial-resync-20160721-161441 0 
+drbd-test-sp2-manually-3: drbdsetup connect initial-resync-20160721-161441 1 
+drbd-test-sp2-manually-3: drbdsetup connect initial-resync-20160721-161441 3 
+drbd-test-sp2-manually-4: drbdsetup new-resource initial-resync-20160721-161441 3 
+drbd-test-sp2-manually-4: drbdsetup new-minor initial-resync-20160721-161441 138 0 
+drbd-test-sp2-manually-4: drbdmeta 138 v09 /dev/scratch/initial-resync-20160721-161441-disk0 internal apply-al 
+drbd-test-sp2-manually-4: drbdsetup attach 138 /dev/scratch/initial-resync-20160721-161441-disk0 /dev/scratch/initial-resync-20160721-161441-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-test-sp2-manually-4: drbdsetup new-peer initial-resync-20160721-161441 0 --_name=drbd-test-sp2-manually-1 
+drbd-test-sp2-manually-4: drbdsetup new-path initial-resync-20160721-161441 0 ipv4:192.168.122.212:7789 ipv4:192.168.122.81:7789 
+drbd-test-sp2-manually-4: drbdsetup new-peer initial-resync-20160721-161441 1 --_name=drbd-test-sp2-manually-2 
+drbd-test-sp2-manually-4: drbdsetup new-path initial-resync-20160721-161441 1 ipv4:192.168.122.212:7789 ipv4:192.168.122.110:7789 
+drbd-test-sp2-manually-4: drbdsetup new-peer initial-resync-20160721-161441 2 --_name=drbd-test-sp2-manually-3 
+drbd-test-sp2-manually-4: drbdsetup new-path initial-resync-20160721-161441 2 ipv4:192.168.122.212:7789 ipv4:192.168.122.4:7789 
+drbd-test-sp2-manually-4: drbdsetup connect initial-resync-20160721-161441 0 
+drbd-test-sp2-manually-4: drbdsetup connect initial-resync-20160721-161441 1 
+drbd-test-sp2-manually-4: drbdsetup connect initial-resync-20160721-161441 2 
+drbd-test-sp2-manually-1: drbdsetup peer-device-options initial-resync-20160721-161441 1 0 
+drbd-test-sp2-manually-1: drbdsetup peer-device-options initial-resync-20160721-161441 2 0 
+drbd-test-sp2-manually-1: drbdsetup peer-device-options initial-resync-20160721-161441 3 0 
+drbd-test-sp2-manually-2: drbdsetup peer-device-options initial-resync-20160721-161441 0 0 
+drbd-test-sp2-manually-2: drbdsetup peer-device-options initial-resync-20160721-161441 2 0 
+drbd-test-sp2-manually-2: drbdsetup peer-device-options initial-resync-20160721-161441 3 0 
+drbd-test-sp2-manually-3: drbdsetup peer-device-options initial-resync-20160721-161441 0 0 
+drbd-test-sp2-manually-3: drbdsetup peer-device-options initial-resync-20160721-161441 1 0 
+drbd-test-sp2-manually-3: drbdsetup peer-device-options initial-resync-20160721-161441 3 0 
+drbd-test-sp2-manually-4: drbdsetup peer-device-options initial-resync-20160721-161441 0 0 
+drbd-test-sp2-manually-4: drbdsetup peer-device-options initial-resync-20160721-161441 1 0 
+drbd-test-sp2-manually-4: drbdsetup peer-device-options initial-resync-20160721-161441 2 0 
+Timeout waiting for patterns to match
+Pattern 'peer-device .* peer-disk:UpToDate' does not match in drbd-test-sp2-manually-1:drbd-test-sp2-manually-2:0 (lines 24-45)
+Pattern 'peer-device .* peer-disk:UpToDate' does not match in drbd-test-sp2-manually-1:drbd-test-sp2-manually-3:0 (lines 24-45)
+Pattern 'peer-device .* peer-disk:UpToDate' does not match in drbd-test-sp2-manually-2:drbd-test-sp2-manually-1:0 (lines 1-43)
+Pattern 'peer-device .* peer-disk:UpToDate' does not match in drbd-test-sp2-manually-3:drbd-test-sp2-manually-1:0 (lines 1-46)
+Traceback (most recent call last):
+  File "./tests/initial-resync", line 24, in <module>
+    resource.initial_resync(first_node)
+  File "/drbdtest/drbd-test.git/tests/python/drbdtest.py", line 707, in initial_resync
+    pds.event(r'peer-device .* peer-disk:UpToDate', timeout=300)
+  File "/drbdtest/drbd-test.git/tests/python/drbdtest.py", line 471, in event
+    resource.logscan(self, where, *args, **kwargs)
+  File "/drbdtest/drbd-test.git/tests/python/drbdtest.py", line 577, in logscan
+    result = subprocess.check_output(cmd + where)
+  File "/usr/lib64/python2.7/subprocess.py", line 573, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+subprocess.CalledProcessError: Command '['logscan', '-d', 'log/initial-resync-20160721-161441', '-w', '--timeout', '300', '-y', 'peer-device .* peer-disk:UpToDate', 'events-drbd-test-sp2-manually-1', '--label', 'drbd-test-sp2-manually-1:drbd-test-sp2-manually-2:0', '-p', '.events-peer-device-drbd-test-sp2-manually-2:0.pos', '-f', 'peer-node-id:1', '-f', 'volume:0', 'events-drbd-test-sp2-manually-1', '--label', 'drbd-test-sp2-manually-1:drbd-test-sp2-manually-3:0', '-p', '.events-peer-device-drbd-test-sp2-manually-3:0.pos', '-f', 'peer-node-id:2', '-f', 'volume:0', 'events-drbd-test-sp2-manually-1', '--label', 'drbd-test-sp2-manually-1:drbd-test-sp2-manually-4:0', '-p', '.events-peer-device-drbd-test-sp2-manually-4:0.pos', '-f', 'peer-node-id:3', '-f', 'volume:0', 'events-drbd-test-sp2-manually-2', '--label', 'drbd-test-sp2-manually-2:drbd-test-sp2-manually-1:0', '-p', '.events-peer-device-drbd-test-sp2-manually-1:0.pos', '-f', 'peer-node-id:0', '-f', 'volume:0', 'events-drbd-test-sp2-manually-2', '--label', 'drbd-test-sp2-manually-2:drbd-test-sp2-manually-3:0', '-p', '.events-peer-device-drbd-test-sp2-manually-3:0.pos', '-f', 'peer-node-id:2', '-f', 'volume:0', 'events-drbd-test-sp2-manually-2', '--label', 'drbd-test-sp2-manually-2:drbd-test-sp2-manually-4:0', '-p', '.events-peer-device-drbd-test-sp2-manually-4:0.pos', '-f', 'peer-node-id:3', '-f', 'volume:0', 'events-drbd-test-sp2-manually-3', '--label', 'drbd-test-sp2-manually-3:drbd-test-sp2-manually-1:0', '-p', '.events-peer-device-drbd-test-sp2-manually-1:0.pos', '-f', 'peer-node-id:0', '-f', 'volume:0', 'events-drbd-test-sp2-manually-3', '--label', 'drbd-test-sp2-manually-3:drbd-test-sp2-manually-2:0', '-p', '.events-peer-device-drbd-test-sp2-manually-2:0.pos', '-f', 'peer-node-id:1', '-f', 'volume:0', 'events-drbd-test-sp2-manually-3', '--label', 'drbd-test-sp2-manually-3:drbd-test-sp2-manually-4:0', '-p', '.events-peer-device-drbd-test-sp2-manually-4:0.pos', '-f', 'peer-node-id:3', '-f', 'volume:0', 'events-drbd-test-sp2-manually-4', '--label', 'drbd-test-sp2-manually-4:drbd-test-sp2-manually-1:0', '-p', '.events-peer-device-drbd-test-sp2-manually-1:0.pos', '-f', 'peer-node-id:0', '-f', 'volume:0', 'events-drbd-test-sp2-manually-4', '--label', 'drbd-test-sp2-manually-4:drbd-test-sp2-manually-2:0', '-p', '.events-peer-device-drbd-test-sp2-manually-2:0.pos', '-f', 'peer-node-id:1', '-f', 'volume:0', 'events-drbd-test-sp2-manually-4', '--label', 'drbd-test-sp2-manually-4:drbd-test-sp2-manually-3:0', '-p', '.events-peer-device-drbd-test-sp2-manually-3:0.pos', '-f', 'peer-node-id:2', '-f', 'volume:0']' returned non-zero exit status 1
+----------------------------------------
+Exception happened during processing of request from ('192.168.122.81', 45150)
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib64/python2.7/SocketServer.py", line 322, in process_request
+    self.shutdown_request(request)
+  File "/usr/lib64/python2.7/SocketServer.py", line 475, in shutdown_request
+    except socket.error:
+AttributeError: 'NoneType' object has no attribute 'error'

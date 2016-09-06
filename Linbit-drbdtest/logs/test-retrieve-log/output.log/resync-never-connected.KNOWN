@@ -1,0 +1,49 @@
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-3: iptables: Chain already exists.
+drbd-sp2-autotest-3: iptables: Chain already exists.
+Logging to directory log/resync-never-connected.KNOWN-20160831-114032
+drbd-sp2-autotest-1: drbdsetup new-resource resync-never-connected.KNOWN-20160831-114032 0 
+drbd-sp2-autotest-1: drbdsetup new-minor resync-never-connected.KNOWN-20160831-114032 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer resync-never-connected.KNOWN-20160831-114032 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-1: drbdsetup new-path resync-never-connected.KNOWN-20160831-114032 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup new-peer resync-never-connected.KNOWN-20160831-114032 2 --_name=drbd-sp2-autotest-3 
+drbd-sp2-autotest-1: drbdsetup new-path resync-never-connected.KNOWN-20160831-114032 2 ipv4:192.168.122.23:7789 ipv4:192.168.122.167:7789 
+drbd-sp2-autotest-1: drbdsetup connect resync-never-connected.KNOWN-20160831-114032 1 
+drbd-sp2-autotest-1: drbdsetup connect resync-never-connected.KNOWN-20160831-114032 2 
+drbd-sp2-autotest-2: drbdsetup new-resource resync-never-connected.KNOWN-20160831-114032 1 
+drbd-sp2-autotest-2: drbdsetup new-minor resync-never-connected.KNOWN-20160831-114032 138 0 
+drbd-sp2-autotest-2: drbdmeta 138 v09 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 internal apply-al 
+drbd-sp2-autotest-2: drbdsetup attach 138 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-2: drbdsetup new-peer resync-never-connected.KNOWN-20160831-114032 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-2: drbdsetup new-path resync-never-connected.KNOWN-20160831-114032 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup new-peer resync-never-connected.KNOWN-20160831-114032 2 --_name=drbd-sp2-autotest-3 
+drbd-sp2-autotest-2: drbdsetup new-path resync-never-connected.KNOWN-20160831-114032 2 ipv4:192.168.122.27:7789 ipv4:192.168.122.167:7789 
+drbd-sp2-autotest-2: drbdsetup connect resync-never-connected.KNOWN-20160831-114032 0 
+drbd-sp2-autotest-2: drbdsetup connect resync-never-connected.KNOWN-20160831-114032 2 
+drbd-sp2-autotest-3: drbdsetup new-resource resync-never-connected.KNOWN-20160831-114032 2 
+drbd-sp2-autotest-3: drbdsetup new-minor resync-never-connected.KNOWN-20160831-114032 138 0 
+drbd-sp2-autotest-3: drbdmeta 138 v09 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 internal apply-al 
+drbd-sp2-autotest-3: drbdsetup attach 138 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 /dev/scratch/resync-never-connected.KNOWN-20160831-114032-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-3: drbdsetup new-peer resync-never-connected.KNOWN-20160831-114032 0 --_name=drbd-sp2-autotest-1 
+drbd-sp2-autotest-3: drbdsetup new-path resync-never-connected.KNOWN-20160831-114032 0 ipv4:192.168.122.167:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-3: drbdsetup new-peer resync-never-connected.KNOWN-20160831-114032 1 --_name=drbd-sp2-autotest-2 
+drbd-sp2-autotest-3: drbdsetup new-path resync-never-connected.KNOWN-20160831-114032 1 ipv4:192.168.122.167:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-3: drbdsetup connect resync-never-connected.KNOWN-20160831-114032 0 
+drbd-sp2-autotest-3: drbdsetup connect resync-never-connected.KNOWN-20160831-114032 1 
+
+
+drbd-sp2-autotest-1: drbdsetup primary resync-never-connected.KNOWN-20160831-114032 --force 
+
+
+
+
+
+
+drbd-sp2-autotest-1:   Logical volume "resync-never-connected.KNOWN-20160831-114032-disk0" successfully removed
+drbd-sp2-autotest-2:   Logical volume "resync-never-connected.KNOWN-20160831-114032-disk0" successfully removed
+drbd-sp2-autotest-3:   Logical volume "resync-never-connected.KNOWN-20160831-114032-disk0" successfully removed

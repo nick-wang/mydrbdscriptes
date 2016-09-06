@@ -1,0 +1,121 @@
+drbd-sp2-autotest-1: test -d /usr/share/drbd-test
+drbd-sp2-autotest-1: timeout 30
+drbd-sp2-autotest-1: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-1: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=ahead-behind.KNOWN-20160831-114009 EXXE_IDENT=exxe/ahead-behind.KNOWN-20160831-114009 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/ahead-behind.KNOWN-20160831-114009/drbd.conf'
+drbd-sp2-autotest-1: hostname -f
+drbd-sp2-autotest-1: drbd-version
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-1: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-1: iptables: Chain already exists.
+drbd-sp2-autotest-2: test -d /usr/share/drbd-test
+drbd-sp2-autotest-2: timeout 30
+drbd-sp2-autotest-2: export 'PATH=/usr/share/drbd-test:$PATH'
+drbd-sp2-autotest-2: export DRBD_TEST_DATA=/usr/share/drbd-test DRBD_TEST_JOB=ahead-behind.KNOWN-20160831-114009 EXXE_IDENT=exxe/ahead-behind.KNOWN-20160831-114009 DRBD_TEST_VERBOSE=0 'DRBD_TEST_DRBDADM_OPTIONS=-c /var/lib/drbd-test/ahead-behind.KNOWN-20160831-114009/drbd.conf'
+drbd-sp2-autotest-2: hostname -f
+drbd-sp2-autotest-2: drbd-version
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-input && iptables -A INPUT -j drbd-test-input || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-2: bash -c 'iptables -N drbd-test-output && iptables -A OUTPUT -j drbd-test-output || true'
+drbd-sp2-autotest-2: iptables: Chain already exists.
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: rsyslogd drbd-sp2-autotest-1 5140
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: disable-faults
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: register-cleanup -t bash -c '! [ -e /proc/drbd ] || drbdsetup down $DRBD_TEST_JOB'
+drbd-sp2-autotest-1: create-disk --internal-meta --max-peers 1 --job ahead-behind.KNOWN-20160831-114009 --volume-group scratch --size 64M ahead-behind.KNOWN-20160831-114009-disk0
+drbd-sp2-autotest-2: create-disk --internal-meta --max-peers 1 --job ahead-behind.KNOWN-20160831-114009 --volume-group scratch --size 64M ahead-behind.KNOWN-20160831-114009-disk0
+drbd-sp2-autotest-1: install-config
+drbd-sp2-autotest-2: install-config
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm up all -v
+drbd-sp2-autotest-1: drbdsetup new-resource ahead-behind.KNOWN-20160831-114009 0 
+drbd-sp2-autotest-1: drbdsetup new-minor ahead-behind.KNOWN-20160831-114009 138 0 
+drbd-sp2-autotest-1: drbdmeta 138 v09 /dev/scratch/ahead-behind.KNOWN-20160831-114009-disk0 internal apply-al 
+drbd-sp2-autotest-1: drbdsetup attach 138 /dev/scratch/ahead-behind.KNOWN-20160831-114009-disk0 /dev/scratch/ahead-behind.KNOWN-20160831-114009-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-1: drbdsetup new-peer ahead-behind.KNOWN-20160831-114009 1 --_name=drbd-sp2-autotest-2 --protocol=A --congestion-fill=10k --on-congestion=pull-ahead 
+drbd-sp2-autotest-1: drbdsetup new-path ahead-behind.KNOWN-20160831-114009 1 ipv4:192.168.122.23:7789 ipv4:192.168.122.27:7789 
+drbd-sp2-autotest-1: drbdsetup connect ahead-behind.KNOWN-20160831-114009 1 
+drbd-sp2-autotest-2: drbdsetup new-resource ahead-behind.KNOWN-20160831-114009 1 
+drbd-sp2-autotest-2: drbdsetup new-minor ahead-behind.KNOWN-20160831-114009 138 0 
+drbd-sp2-autotest-2: drbdmeta 138 v09 /dev/scratch/ahead-behind.KNOWN-20160831-114009-disk0 internal apply-al 
+drbd-sp2-autotest-2: drbdsetup attach 138 /dev/scratch/ahead-behind.KNOWN-20160831-114009-disk0 /dev/scratch/ahead-behind.KNOWN-20160831-114009-disk0 internal --md-flushes=no --disk-flushes=no 
+drbd-sp2-autotest-2: drbdsetup new-peer ahead-behind.KNOWN-20160831-114009 0 --_name=drbd-sp2-autotest-1 --protocol=A --congestion-fill=10k --on-congestion=pull-ahead 
+drbd-sp2-autotest-2: drbdsetup new-path ahead-behind.KNOWN-20160831-114009 0 ipv4:192.168.122.27:7789 ipv4:192.168.122.23:7789 
+drbd-sp2-autotest-2: drbdsetup connect ahead-behind.KNOWN-20160831-114009 0 
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* peer-disk:(Inconsistent|Diskless)
+
+drbd-sp2-autotest-1: drbdadm new-current-uuid --clear-bitmap ahead-behind.KNOWN-20160831-114009/0
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: drbdadm peer-device-options --c-min-rate 0 all -v
+drbd-sp2-autotest-1: drbdsetup peer-device-options ahead-behind.KNOWN-20160831-114009 1 0 
+drbd-sp2-autotest-2: drbdsetup peer-device-options ahead-behind.KNOWN-20160831-114009 0 0 
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* peer-disk:UpToDate
+
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary ahead-behind.KNOWN-20160831-114009 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: dd if=/dev/zero of=/dev/drbd138 bs=1M count=4 oflag=direct
+drbd-sp2-autotest-1: 4+0 records in
+drbd-sp2-autotest-1: 4+0 records out
+drbd-sp2-autotest-1: 4194304 bytes (4.2 MB, 4.0 MiB) copied, 2.13587 s, 2.0 MB/s
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 -y peer-device .* replication:Ahead
+
+Waiting for event drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:Behind
+
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 -y peer-device .* replication:SyncSource
+
+Waiting for event drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:SyncTarget
+
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:Established
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary ahead-behind.KNOWN-20160831-114009 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: dd if=/dev/zero of=/dev/drbd138 bs=1M count=4 oflag=direct
+drbd-sp2-autotest-1: 4+0 records in
+drbd-sp2-autotest-1: 4+0 records out
+drbd-sp2-autotest-1: 4194304 bytes (4.2 MB, 4.0 MiB) copied, 2.14125 s, 2.0 MB/s
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 -y peer-device .* replication:Ahead
+
+Waiting for event drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:Behind
+
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 -y peer-device .* replication:SyncSource
+
+Waiting for event drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:SyncTarget
+
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:Established
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+drbd-sp2-autotest-1: drbdadm primary all -v
+drbd-sp2-autotest-1: drbdsetup primary ahead-behind.KNOWN-20160831-114009 
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Primary
+
+drbd-sp2-autotest-1: dd if=/dev/zero of=/dev/drbd138 bs=1M count=4 oflag=direct
+drbd-sp2-autotest-1: 4+0 records in
+drbd-sp2-autotest-1: 4+0 records out
+drbd-sp2-autotest-1: 4194304 bytes (4.2 MB, 4.0 MiB) copied, 1.04481 s, 4.0 MB/s
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 -y peer-device .* replication:Ahead
+
+Waiting for event drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:Behind
+
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 -y peer-device .* replication:SyncSource
+
+Waiting for event drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:SyncTarget
+
+Waiting for event drbd-sp2-autotest-1:drbd-sp2-autotest-2:0 drbd-sp2-autotest-2:drbd-sp2-autotest-1:0 -y peer-device .* replication:Established
+
+drbd-sp2-autotest-1: drbdadm secondary all
+Waiting for event drbd-sp2-autotest-1 -y resource .* role:Secondary
+
+drbd-sp2-autotest-1 drbd-sp2-autotest-2: cleanup
+drbd-sp2-autotest-1:   drbd-sp2-autotest-1: Logical volume scratch/ahead-behind.KNOWN-20160831-114009-disk0 is used by another device.drbd-sp2-autotest-1: 
+
+drbd-sp2-autotest-1: cleanup failed with status 1drbd-sp2-autotest-2:   drbd-sp2-autotest-2: Logical volume scratch/ahead-behind.KNOWN-20160831-114009-disk0 is used by another device.drbd-sp2-autotest-2: 
+
+drbd-sp2-autotest-2: cleanup failed with status 1
